@@ -1,0 +1,105 @@
+/* ============================================================
+   LLM Atlas — 学术白（LaTeX 论文风）
+   纯白底 · 墨黑正文 · 深蓝链接 · 衬线排印 · 公式裸排
+   ============================================================ */
+
+:root {
+  --atlas-accent: #1a4b8c;
+  --atlas-accent-deep: #123866;
+  --atlas-wash: rgba(26, 75, 140, 0.06);
+
+  --vp-c-brand-1: var(--atlas-accent);
+  --vp-c-brand-2: var(--atlas-accent-deep);
+  --vp-c-brand-3: var(--atlas-accent);
+  --vp-c-brand-soft: var(--atlas-wash);
+
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #fafafa;
+  --vp-c-bg-soft: #fafafa;
+  --vp-c-bg-elv: #ffffff;
+
+  --vp-c-text-1: #111111;
+  --vp-c-text-2: #444444;
+  --vp-c-text-3: #888888;
+
+  --vp-c-divider: #e0e0e0;
+  --vp-c-border: #cccccc;
+
+  --vp-font-family-base: 'Fraunces', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --vp-font-family-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.9);
+  --vp-sidebar-bg-color: #fafafa;
+
+  --vp-code-color: var(--atlas-accent-deep);
+  --vp-code-bg: #f2f2f2;
+}
+
+.dark {
+  --atlas-accent: #8ab4f8;
+  --atlas-accent-deep: #aecbfa;
+  --atlas-wash: rgba(138, 180, 248, 0.1);
+
+  --vp-c-bg: #1c1c1c;
+  --vp-c-bg-alt: #161616;
+  --vp-c-bg-soft: #242424;
+  --vp-c-bg-elv: #242424;
+
+  --vp-c-text-1: #e3e3e3;
+  --vp-c-text-2: #aaaaaa;
+  --vp-c-text-3: #777777;
+
+  --vp-c-divider: #333333;
+  --vp-c-border: #444444;
+
+  --vp-nav-bg-color: rgba(28, 28, 28, 0.9);
+  --vp-sidebar-bg-color: #161616;
+
+  --vp-code-color: var(--atlas-accent);
+  --vp-code-bg: rgba(255, 255, 255, 0.07);
+}
+
+/* ============ 排印 ============ */
+.vp-doc {
+  font-size: 16.5px;
+  line-height: 1.85;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.VPNavBarTitle .title {
+  font-family: 'Fraunces', 'Noto Serif SC', 'Songti SC', serif;
+}
+.vp-doc h1 { font-weight: 700; font-size: 2.3rem; }
+.vp-doc h2 { font-weight: 650; }
+.vp-doc h3 { font-weight: 650; }
+.VPNavBarTitle .title { font-weight: 700; letter-spacing: 0.02em; }
+
+/* 侧边栏分组标题 */
+.VPSidebarItem.level-0 > .item .text {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+}
+
+/* 链接：论文式下划线 */
+.vp-doc a {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(26, 75, 140, 0.4);
+  transition: text-decoration-color 0.15s ease;
+}
+.vp-doc a:hover { text-decoration-color: currentColor; }
+.dark .vp-doc a { text-decoration-color: rgba(138, 180, 248, 0.4); }
+
+/* 公式：裸排，仅留呼吸空间 */
+.vp-doc mjx-container[display='true'] {
+  display: block;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+
+::selection { background: var(--atlas-wash); }
