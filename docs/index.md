@@ -9,6 +9,7 @@ title: 全景速览
 ```mermaid
 flowchart LR
     BM[基础模型] -.架构.-> ARCH[模型架构]
+    ARCH -.生成式.-> AIGC[AIGC / 扩散]
     BM --> SFT[SFT]
     SFT -.PEFT.-> LORA[LoRA 及变体]
     SFT --> PO[DPO 系列]
@@ -16,7 +17,9 @@ flowchart LR
     SFT --> DST[蒸馏]
     PO --> A[对齐模型]
     RL --> A
+    RL -.可验证奖励.-> RSN[推理模型]
     A --> INF[推理与解码]
+    A -.度量.-> EVAL[评测]
     A --> AG[Agent]
     AG -.脚手架.-> HN[Harness]
     AG -.能力扩展.-> SK[Skills]
@@ -55,6 +58,19 @@ flowchart LR
 - **VLM / Omni**：视觉编码器 + 连接器 + LLM；扩展到全模态与流式。 [VLM →](/architecture/vlm) · [Omni →](/architecture/omni)
 
 总览见 [模型架构总览 →](/architecture/)。
+
+## 生成式模型 / AIGC
+
+LLM 之外的另一条主线——图像 / 视频是怎么生成出来的。以扩散模型为主干，从原理到落地。
+
+- **扩散模型基础**：前向加噪、反向去噪、DDPM / DDIM / score-based。 [详细 →](/aigc/diffusion-basics)
+- **Latent Diffusion / Stable Diffusion**：潜空间扩散 + 文本条件 + CFG。 [详细 →](/aigc/latent-diffusion)
+- **架构演进**：U-Net → DiT，Flow Matching / Rectified Flow（SD3 / Flux）。 [详细 →](/aigc/dit-flow)
+- **条件控制与定制**：ControlNet / LoRA / IP-Adapter / DreamBooth。 [详细 →](/aigc/control)
+- **采样加速与蒸馏**：DPM-Solver / Consistency / LCM / Turbo。 [详细 →](/aigc/acceleration)
+- **视频与多模态生成**：Sora 式 DiT 时空 patch、SVD / Wan / Veo。 [详细 →](/aigc/video)
+
+总览见 [AIGC 总览 →](/aigc/)。
 
 ## SFT 监督微调
 
@@ -280,6 +296,27 @@ $$
 
 总览与选型见 [蒸馏总览 →](/distillation/)。
 
+## 训练系统 / 分布式
+
+模型大到单卡放不下时，怎么把训练切到成百上千张卡上。
+
+- **数据并行**：DDP / ZeRO / FSDP，分片优化器状态省显存。 [详细 →](/training-systems/data-parallel)
+- **模型并行**：张量并行（Megatron）+ 流水并行 + 3D 并行。 [详细 →](/training-systems/model-parallel)
+- **显存与吞吐优化**：混合精度、梯度检查点、梯度累积。 [详细 →](/training-systems/efficiency)
+
+总览见 [训练系统总览 →](/training-systems/)。
+
+## 推理模型（Reasoning）
+
+o1 / R1 这条线——让模型先想再答、用长思维链 + 推理时算力换正确率。
+
+- **Test-time scaling**：长 CoT、自洽性、budget forcing。 [详细 →](/reasoning/test-time-scaling)
+- **RLVR**：用可验证奖励做 RL，R1 的纯 RL 配方。 [详细 →](/reasoning/rlvr)
+- **过程/结果奖励**：PRM vs ORM、Let's Verify、Math-Shepherd。 [详细 →](/reasoning/reward-models)
+- **搜索与验证**：Tree of Thoughts、MCTS（rStar）。 [详细 →](/reasoning/search)
+
+总览见 [推理模型总览 →](/reasoning/)。
+
 ## 推理与解码
 
 ### KV Cache 与 PagedAttention
@@ -307,6 +344,16 @@ vLLM / SGLang / TensorRT-LLM 把分页 KV、continuous batching、prefix caching
 **适用**：模型选型之后的"怎么把它高效地部署 / serving 出去"。 [详细 →](/inference/frameworks)
 
 总览见 [推理与解码总览 →](/inference/)。
+
+## 评测 Evaluation
+
+模型到底行不行，怎么量。基准、人评、用大模型当裁判，各有坑。
+
+- **基准与数据污染**：MMLU/GPQA/SWE-bench…，以及刷榜与污染问题。 [详细 →](/eval/benchmarks)
+- **LLM-as-judge**：用大模型打分的偏差与缓解。 [详细 →](/eval/llm-as-judge)
+- **Arena / Elo**：匿名对战 + 人类偏好排名。 [详细 →](/eval/arena)
+
+总览见 [评测总览 →](/eval/)。
 
 ## Harness
 

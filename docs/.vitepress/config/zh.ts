@@ -7,6 +7,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
       { text: '速览', link: '/' },
       { text: '基础模型', link: '/base-models/' },
       { text: '模型架构', link: '/architecture/' },
+      { text: 'AIGC', link: '/aigc/' },
       {
         text: '训练',
         items: [
@@ -14,10 +15,18 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'LoRA 及变体', link: '/lora/' },
           { text: 'DPO 系列', link: '/dpo/' },
           { text: 'PPO / GRPO 系列', link: '/rlhf/' },
-          { text: '蒸馏', link: '/distillation/' }
+          { text: '蒸馏', link: '/distillation/' },
+          { text: '训练系统 / 分布式', link: '/training-systems/' }
         ]
       },
-      { text: '推理', link: '/inference/' },
+      { text: '推理模型', link: '/reasoning/' },
+      {
+        text: '推理与评测',
+        items: [
+          { text: '推理与解码', link: '/inference/' },
+          { text: '评测 Evaluation', link: '/eval/' }
+        ]
+      },
       {
         text: 'Agent',
         items: [
@@ -45,6 +54,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         collapsed: false,
         items: [
           { text: '总览与选型', link: '/base-models/' },
+          { text: 'Scaling Laws（规模定律）', link: '/base-models/scaling-laws' },
           { text: 'Qwen（阿里）', link: '/base-models/qwen' },
           { text: 'DeepSeek（深度求索）', link: '/base-models/deepseek' },
           { text: 'GLM（智谱）', link: '/base-models/glm' },
@@ -69,6 +79,19 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'MoE 混合专家', link: '/architecture/moe' },
           { text: 'VLM 多模态结构', link: '/architecture/vlm' },
           { text: 'Omni 全模态架构', link: '/architecture/omni' }
+        ]
+      },
+      {
+        text: '生成式模型 / AIGC',
+        collapsed: true,
+        items: [
+          { text: '总览', link: '/aigc/' },
+          { text: '扩散模型基础（DDPM/DDIM）', link: '/aigc/diffusion-basics' },
+          { text: 'Latent Diffusion 与 Stable Diffusion', link: '/aigc/latent-diffusion' },
+          { text: '架构演进（U-Net→DiT/Flow）', link: '/aigc/dit-flow' },
+          { text: '条件控制与定制', link: '/aigc/control' },
+          { text: '采样加速与蒸馏', link: '/aigc/acceleration' },
+          { text: '视频与多模态生成', link: '/aigc/video' }
         ]
       },
       {
@@ -135,6 +158,27 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
+        text: '训练系统 / 分布式',
+        collapsed: true,
+        items: [
+          { text: '总览', link: '/training-systems/' },
+          { text: '数据并行（ZeRO/FSDP）', link: '/training-systems/data-parallel' },
+          { text: '模型并行（Megatron/TP·PP/3D）', link: '/training-systems/model-parallel' },
+          { text: '显存与吞吐优化', link: '/training-systems/efficiency' }
+        ]
+      },
+      {
+        text: '推理模型（Reasoning）',
+        collapsed: true,
+        items: [
+          { text: '总览', link: '/reasoning/' },
+          { text: 'Test-time scaling 与长 CoT', link: '/reasoning/test-time-scaling' },
+          { text: 'RLVR：可验证奖励 RL', link: '/reasoning/rlvr' },
+          { text: '过程/结果奖励（PRM/ORM）', link: '/reasoning/reward-models' },
+          { text: '搜索与验证（ToT/MCTS）', link: '/reasoning/search' }
+        ]
+      },
+      {
         text: '推理与解码',
         collapsed: true,
         items: [
@@ -143,6 +187,16 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: '量化（GPTQ/AWQ/FP8）', link: '/inference/quantization' },
           { text: '投机解码（含 MTP）', link: '/inference/speculative-decoding' },
           { text: '推理框架与服务引擎', link: '/inference/frameworks' }
+        ]
+      },
+      {
+        text: '评测 Evaluation',
+        collapsed: true,
+        items: [
+          { text: '总览', link: '/eval/' },
+          { text: '基准与数据污染', link: '/eval/benchmarks' },
+          { text: 'LLM-as-judge', link: '/eval/llm-as-judge' },
+          { text: 'Arena / Elo 与人类偏好', link: '/eval/arena' }
         ]
       },
       {
