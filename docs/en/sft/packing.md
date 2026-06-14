@@ -1,52 +1,28 @@
 ---
 title: Sequence Packing
-translation: synced
+translation: pending
 ---
 
 # Sequence Packing
 
-> **In one sentence**: TODO — pack multiple short samples into a single training sequence to fill the context, significantly improving training throughput.
->
-> Prerequisites: [SFT Overview](/en/sft/)
-
-::: warning Status
-🚧 This page is a placeholder outline; the full text has not been written yet.
+::: warning Translation pending
+This page has not been translated yet. Please read the [Chinese version](/sft/packing).
 :::
 
-## 1. Intuition and Motivation
+## Intuition and Motivation
 
-TODO:
+## Method and Formulation
 
-- [ ] How much padding wastes: the fraction of effective tokens with short samples
-- [ ] The magnitude of throughput gains from packing
+### Bin Packing: How to Combine
 
-## 2. Method
+### Cross-contamination: Attention Must Be Isolated
 
-TODO:
+### FlashAttention varlen Interface
 
-- [ ] Naive concatenation vs first-fit binning
-- [ ] The cross-contamination problem: whether attention is isolated between samples
-- [ ] Block-diagonal attention mask / resetting position_ids
-- [ ] FlashAttention's varlen interface (`cu_seqlens`)
+## Comparison with Baselines
 
-## 3. Comparison with Baselines
+## Implementation Notes
 
-| Dimension | Padding | Naive packing | Isolated packing |
-| --- | --- | --- | --- |
-| Throughput | Low | High | High |
-| Cross-sample leakage | None | Yes | None |
-| Implementation complexity | Low | Low | Medium |
+## Tuning and Practical Experience
 
-## 4. Implementation Notes and Pseudocode
-
-```python
-# TODO: first-fit packing + cu_seqlens construction pseudocode
-```
-
-## 5. Experiments and Tuning Experience
-
-TODO: whether packing's impact on quality is negligible; when attention isolation is mandatory.
-
-## 6. References
-
-- [ ] Krell et al., 2021. *Efficient Sequence Packing*
+## References

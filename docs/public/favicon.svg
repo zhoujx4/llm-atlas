@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="12" fill="#1a4b8c"/>
+  <!-- 等高线 / 地图意象 -->
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="2">
+    <path d="M8 44 Q32 30 56 44"/>
+    <path d="M8 52 Q32 40 56 52"/>
+  </g>
+  <!-- 衬线 A -->
+  <text x="32" y="42" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="38"
+        font-weight="700" fill="#ffffff">A</text>
+</svg>

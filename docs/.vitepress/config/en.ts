@@ -1,15 +1,32 @@
 import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 
 export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
-  description: 'A knowledge atlas of LLM training algorithms: SFT / LoRA / DPO / RLHF / Agent',
+  description: 'A knowledge atlas of LLM training algorithms: base models / SFT / LoRA / DPO / RLHF / distillation / inference / agents',
   themeConfig: {
     nav: [
+      { text: 'At a Glance', link: '/en/' },
+      { text: 'Base Models', link: '/en/base-models/' },
+      {
+        text: 'Training',
+        items: [
+          { text: 'SFT', link: '/en/sft/' },
+          { text: 'LoRA & Variants', link: '/en/lora/' },
+          { text: 'DPO Family', link: '/en/dpo/' },
+          { text: 'PPO / GRPO Family', link: '/en/rlhf/' },
+          { text: 'Distillation', link: '/en/distillation/' }
+        ]
+      },
+      { text: 'Inference', link: '/en/inference/' },
+      {
+        text: 'Agent',
+        items: [
+          { text: 'Harness', link: '/en/harness/' },
+          { text: 'Agent', link: '/en/agent/' },
+          { text: 'Skills', link: '/en/skills/' }
+        ]
+      },
       { text: 'Guide', link: '/en/guide/' },
-      { text: 'SFT', link: '/en/sft/' },
-      { text: 'LoRA', link: '/en/lora/' },
-      { text: 'Preference Opt.', link: '/en/dpo/' },
-      { text: 'RLHF / RL', link: '/en/rlhf/' },
-      { text: 'Agent', link: '/en/agent/' }
+      { text: 'About', link: '/en/about' }
     ],
     sidebar: [
       {
@@ -22,8 +39,25 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: 'Supervised Fine-Tuning',
+        text: 'Base Models',
         collapsed: false,
+        items: [
+          { text: 'Overview', link: '/en/base-models/' },
+          { text: 'Qwen (Alibaba)', link: '/en/base-models/qwen' },
+          { text: 'DeepSeek', link: '/en/base-models/deepseek' },
+          { text: 'GLM (Zhipu)', link: '/en/base-models/glm' },
+          { text: 'Llama (Meta)', link: '/en/base-models/llama' },
+          { text: 'Kimi (Moonshot)', link: '/en/base-models/kimi' },
+          { text: 'MiniMax', link: '/en/base-models/minimax' },
+          { text: 'Step (StepFun)', link: '/en/base-models/stepfun' },
+          { text: 'Gemini (Google)', link: '/en/base-models/gemini' },
+          { text: 'Claude (Anthropic)', link: '/en/base-models/claude' },
+          { text: 'GPT (OpenAI)', link: '/en/base-models/openai' }
+        ]
+      },
+      {
+        text: 'Supervised Fine-Tuning',
+        collapsed: true,
         items: [
           { text: 'Overview', link: '/en/sft/' },
           { text: 'Full Fine-Tuning', link: '/en/sft/full-finetuning' },
@@ -48,7 +82,7 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: 'Preference Optimization (DPO Family)',
+        text: 'DPO Family',
         collapsed: true,
         items: [
           { text: 'Overview', link: '/en/dpo/' },
@@ -61,26 +95,65 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: 'RLHF / Reinforcement Learning',
+        text: 'PPO / GRPO Family',
         collapsed: true,
         items: [
-          { text: 'RLHF Overview', link: '/en/rlhf/' },
+          { text: 'Overview', link: '/en/rlhf/' },
           { text: 'Reward Model', link: '/en/rlhf/reward-model' },
           { text: 'PPO', link: '/en/rlhf/ppo' },
           { text: 'GRPO', link: '/en/rlhf/grpo' },
+          { text: 'DAPO', link: '/en/rlhf/dapo' },
+          { text: 'GSPO', link: '/en/rlhf/gspo' },
           { text: 'RLOO', link: '/en/rlhf/rloo' },
           { text: 'REINFORCE++', link: '/en/rlhf/reinforce-plus-plus' }
         ]
       },
       {
-        text: 'Agent & Skills',
+        text: 'Distillation',
+        collapsed: true,
+        items: [
+          { text: 'Overview', link: '/en/distillation/' },
+          { text: 'Black-Box (Data/CoT)', link: '/en/distillation/black-box' },
+          { text: 'White-Box (Logits KL)', link: '/en/distillation/white-box' }
+        ]
+      },
+      {
+        text: 'Inference & Decoding',
+        collapsed: true,
+        items: [
+          { text: 'Overview', link: '/en/inference/' },
+          { text: 'KV Cache & PagedAttention', link: '/en/inference/kv-cache' },
+          { text: 'Quantization (GPTQ/AWQ/FP8)', link: '/en/inference/quantization' },
+          { text: 'Speculative Decoding', link: '/en/inference/speculative-decoding' }
+        ]
+      },
+      {
+        text: 'Harness',
+        collapsed: true,
+        items: [
+          { text: 'Overview', link: '/en/harness/' },
+          { text: 'Agent Loop & Context', link: '/en/harness/agent-loop' },
+          { text: 'Sandbox & Tool Execution', link: '/en/harness/sandbox' },
+          { text: 'Systems Compared', link: '/en/harness/systems' }
+        ]
+      },
+      {
+        text: 'Agent',
         collapsed: true,
         items: [
           { text: 'Overview', link: '/en/agent/' },
           { text: 'Tool Use Training', link: '/en/agent/tool-use' },
-          { text: 'Agent Skills', link: '/en/agent/agent-skills' },
           { text: 'Agentic RL', link: '/en/agent/agentic-rl' },
           { text: 'Multi-Agent', link: '/en/agent/multi-agent' }
+        ]
+      },
+      {
+        text: 'Skills',
+        collapsed: true,
+        items: [
+          { text: 'Agent Skills', link: '/en/skills/' },
+          { text: 'Skill Design & Evaluation', link: '/en/skills/design' },
+          { text: 'Skills vs RAG vs Fine-Tuning', link: '/en/skills/vs-rag-finetune' }
         ]
       }
     ],

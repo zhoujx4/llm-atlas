@@ -26,7 +26,7 @@ flowchart TD
 | Page | Question it answers |
 | --- | --- |
 | [Tool-Use Training](/en/agent/tool-use) | How to teach a model to issue function calls correctly |
-| [Agent Skills](/en/agent/agent-skills) | How to package domain knowledge into reusable skills |
+| [Agent Skills](/en/skills/) | How to package domain knowledge into reusable skills |
 | [Agentic RL](/en/agent/agentic-rl) | How to train multi-turn interactive tasks with RL |
 | [Multi-Agent](/en/agent/multi-agent) | How multiple agents divide work and collaborate |
 

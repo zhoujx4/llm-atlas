@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="630" fill="none" stroke="#e2e2e2" stroke-width="2"/>
+  <!-- 顶部细色条 -->
+  <rect width="1200" height="10" fill="#1a4b8c"/>
+
+  <!-- 标识方块 -->
+  <g transform="translate(96,150)">
+    <rect width="120" height="120" rx="22" fill="#1a4b8c"/>
+    <g fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="4">
+      <path d="M15 82 Q60 56 105 82"/>
+      <path d="M15 97 Q60 75 105 97"/>
+    </g>
+    <text x="60" y="80" text-anchor="middle"
+          font-family="Georgia, 'Times New Roman', serif" font-size="72"
+          font-weight="700" fill="#ffffff">A</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="248" y="212" font-family="Georgia, 'Times New Roman', serif"
+        font-size="78" font-weight="700" fill="#111111">LLM Atlas</text>
+  <text x="250" y="262" font-family="Georgia, 'Times New Roman', serif"
+        font-size="30" fill="#555555">LLM 训练算法知识图谱</text>
+
+  <!-- 章节链 -->
+  <text x="96" y="380" font-family="Georgia, 'Times New Roman', serif"
+        font-size="34" fill="#1a4b8c" font-weight="600">基础模型 · SFT · LoRA · DPO · PPO/GRPO</text>
+  <text x="96" y="430" font-family="Georgia, 'Times New Roman', serif"
+        font-size="34" fill="#1a4b8c" font-weight="600">蒸馏 · 推理与解码 · Harness · Agent · Skills</text>
+
+  <!-- 底部说明 -->
+  <text x="96" y="540" font-family="Georgia, 'Times New Roman', serif"
+        font-size="26" fill="#777777">只收讨论度高的出名算法 · 公式 / 图解 / 调参经验 · 中文 &amp; English</text>
+</svg>

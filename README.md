@@ -1,21 +1,32 @@
 # LLM Atlas
 
-> LLM 训练算法知识图谱：SFT / LoRA / DPO / RLHF / Agent —— 用 Markdown 写作，自动构建为在线网站。
+> LLM 训练算法知识图谱：基础模型 / SFT / LoRA / DPO / RLHF / 蒸馏 / 推理 / Agent —— 用 Markdown 写作，自动构建为在线网站。
 
 **在线阅读**：https://zhoujx4.github.io/llm-atlas/ （中文 | [English](https://zhoujx4.github.io/llm-atlas/en/)）
+
+收录原则：**只收讨论度高、用得最多的出名算法**，不堆砌冷门变体，也不堆砌易过期的 benchmark 数字。
 
 ## 知识体系
 
 ```
-导读          如何阅读、符号约定
+导读          如何阅读 · 符号约定
+基础模型       Qwen · DeepSeek · GLM · Llama · Kimi · MiniMax · StepFun · Gemini · Claude · OpenAI
 SFT           全量微调 · 数据构造 · Chat Template · Packing · Loss Masking
 LoRA 及变体    LoRA · QLoRA · DoRA · AdaLoRA · rsLoRA · LoRA+ · PiSSA
-偏好优化       DPO · IPO · KTO · ORPO · SimPO · CPO
-RLHF / RL     Reward Model · PPO · GRPO · RLOO · REINFORCE++
-Agent 与 Skill Tool Use · Agent Skills · Agentic RL · 多智能体
+DPO 系列       DPO · IPO · KTO · ORPO · SimPO · CPO
+PPO/GRPO 系列  Reward Model · PPO · GRPO · DAPO · GSPO · RLOO · REINFORCE++
+蒸馏           黑盒（数据/CoT） · 白盒（logits KL）
+推理与解码     KV Cache & PagedAttention · 量化（GPTQ/AWQ/FP8） · 投机解码
+Harness       执行循环与上下文 · 沙箱与工具执行 · 代表系统对比
+              └ 自主科研与自动化 Agent：AI Scientist · Agent Laboratory · AIDE · AI co-scientist
+Agent         Tool Use 训练 · 多智能体
+              ├ Agentic RL：检索/工具 RL · 软件工程 RL · Web 导航 RL · 训练稳定性
+              ├ 代表性 Agent 框架：LangChain · LangGraph · LlamaIndex · AutoGen · CrewAI · MetaGPT · Claude Agent SDK · Claude Code · Codex · OpenClaw · Hermes
+              └ Deep Research：OpenAI Deep Research · open-deep-research(HF) · STORM/Co-STORM
+Skills        Agent Skills 体系 · 技能设计与评测 · AutoSkill 技能自迭代 · 与 RAG/微调对比
 ```
 
-未来扩展方向：RLVR、蒸馏、推理优化等——新增一个顶层目录 + 一组侧边栏配置即可。
+开源模型以技术报告 / 论文为准，闭源模型以官方博客 / 模型卡为准。
 
 ## 本地开发
 

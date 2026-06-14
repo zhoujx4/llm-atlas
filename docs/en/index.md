@@ -213,7 +213,7 @@ Teach the model to issue schema-correct function calls and digest the results; m
 
 ### Agent Skills
 
-Package procedures and tool knowledge into "instructions + scripts + resources" skill bundles — loaded on demand, no weight changes. [Details →](/en/agent/agent-skills)
+Package procedures and tool knowledge into "instructions + scripts + resources" skill bundles — loaded on demand, no weight changes. [Details →](/en/skills/)
 
 ### Agentic RL
 
