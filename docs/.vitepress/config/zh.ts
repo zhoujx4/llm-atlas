@@ -144,6 +144,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'Reward Model', link: '/rlhf/reward-model' },
           { text: 'PPO', link: '/rlhf/ppo' },
           { text: 'GRPO', link: '/rlhf/grpo' },
+          { text: '训练循环机制', link: '/rlhf/training-loop' },
           { text: 'DAPO', link: '/rlhf/dapo' },
           { text: 'GSPO', link: '/rlhf/gspo' },
           { text: 'RLOO', link: '/rlhf/rloo' },

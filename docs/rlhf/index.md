@@ -83,6 +83,7 @@ timeline
 
 - [Reward Model](/rlhf/reward-model)：奖励从哪里来，以及它的种种坑（reward hacking、长度偏置、ORM vs PRM）
 - 算法演化：[PPO](/rlhf/ppo) → [GRPO](/rlhf/grpo) → [DAPO](/rlhf/dapo) / [GSPO](/rlhf/gspo) → [RLOO](/rlhf/rloo) → [REINFORCE++](/rlhf/reinforce-plus-plus)
+- 工程视角：[训练循环机制](/rlhf/training-loop)——一个 batch 里 rollout / learning 两阶段怎么走、policy 参数在哪一步被更新（PPO/GRPO 共通骨架）
 - 平行路线：[DPO 家族](/dpo/)，符号体系见 [记号约定](/guide/notation)
 
 ## 参考文献
