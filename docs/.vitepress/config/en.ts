@@ -35,7 +35,10 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
         items: [
           { text: 'At a Glance', link: '/en/' },
           { text: 'How to Read This Atlas', link: '/en/guide/' },
-          { text: 'Notation', link: '/en/guide/notation' }
+          { text: 'Notation', link: '/en/guide/notation' },
+          { text: 'Information Theory Basics', link: '/en/guide/info-theory' },
+          { text: 'GPU Basics', link: '/en/guide/gpu' },
+          { text: 'A/B Testing & Statistics', link: '/en/guide/ab-testing' }
         ]
       },
       {
@@ -144,6 +147,16 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'Overview', link: '/en/agent/' },
           { text: 'Tool Use Training', link: '/en/agent/tool-use' },
           { text: 'Agentic RL', link: '/en/agent/agentic-rl' },
+          {
+            text: 'Deep Research',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/en/agent/deep-research/' },
+              { text: 'Mind DeepResearch (Li Auto)', link: '/en/agent/deep-research/mind-deepresearch' },
+              { text: 'AgentDisCo', link: '/en/agent/deep-research/agentdisco' },
+              { text: 'DR-Rubric', link: '/en/agent/deep-research/dr-rubric' }
+            ]
+          },
           { text: 'Multi-Agent', link: '/en/agent/multi-agent' }
         ]
       },
