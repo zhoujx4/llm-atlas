@@ -29,6 +29,8 @@ title: 符号约定
 | $\mathbb{E}_{(\cdot) \sim \mathbb{D}}[\cdot]$ | 在数据分布上取期望 |
 | $\mathrm{KL}(p \,\|\, q)$ | $p$ 相对 $q$ 的 KL 散度 |
 
+> 不熟悉熵 / 交叉熵 / KL 散度 / 比特之间关系的读者，建议先读 [信息论基础](/guide/info-theory)——SFT 损失、DPO/RLHF 的 KL 约束、蒸馏都建立在这几个概念上。
+
 策略对完整回答的概率按自回归分解为各 token 条件概率之积：行内写作 $\pi_\theta(y \mid x) = \prod_{t=1}^{\lvert y \rvert} \pi_\theta(y_t \mid x, y_{<t})$。
 
 ## 强化学习记号

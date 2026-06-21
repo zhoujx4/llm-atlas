@@ -46,6 +46,9 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: '全景速览', link: '/' },
           { text: '如何使用本知识库', link: '/guide/' },
           { text: '符号约定', link: '/guide/notation' },
+          { text: '信息论基础', link: '/guide/info-theory' },
+          { text: 'GPU 基础', link: '/guide/gpu' },
+          { text: 'A/B 实验与统计', link: '/guide/ab-testing' },
           { text: '前沿博客与资源', link: '/guide/blogs' }
         ]
       },
@@ -263,6 +266,9 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'OpenAI Deep Research', link: '/agent/deep-research/openai-deep-research' },
               { text: 'Tongyi DeepResearch（阿里）', link: '/agent/deep-research/tongyi-deepresearch' },
               { text: 'REDSearcher（小红书）', link: '/agent/deep-research/redsearcher' },
+              { text: 'Mind DeepResearch（理想）', link: '/agent/deep-research/mind-deepresearch' },
+              { text: 'AgentDisCo（解耦+协作）', link: '/agent/deep-research/agentdisco' },
+              { text: 'DR-Rubric（深研造 RL 奖励）', link: '/agent/deep-research/dr-rubric' },
               { text: 'open-deep-research（HF）', link: '/agent/deep-research/open-deep-research' },
               { text: 'STORM / Co-STORM', link: '/agent/deep-research/storm' }
             ]

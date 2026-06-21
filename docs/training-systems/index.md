@@ -6,7 +6,7 @@ title: 训练系统与分布式总览
 
 > **一句话**：当一份大模型放不进、也算不动单卡时，训练系统的核心任务就是把「参数 + 梯度 + 优化器状态 + 激活」这四份显存，以及它们之间的通信，沿数据 / 张量 / 流水 / 专家 / 序列五个维度切到成百上千张卡上。
 > 关键年份：Megatron-LM（arXiv:1909.08053, 2019）、ZeRO（arXiv:1910.02054, 2019）、PyTorch FSDP（arXiv:2304.11277, 2023）、Megatron 序列并行（arXiv:2205.05198, 2022）
-> 前置阅读：[MoE 架构](/architecture/moe)、[推理框架](/inference/frameworks)、[QLoRA](/lora/qlora)
+> 前置阅读：[GPU 基础](/guide/gpu)、[MoE 架构](/architecture/moe)、[推理框架](/inference/frameworks)、[QLoRA](/lora/qlora)
 
 ## 一、为什么必须分布式：显存墙与通信墙
 

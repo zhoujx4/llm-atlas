@@ -57,7 +57,7 @@ timeline
     2023 : GPT Researcher（开源，planner+execution）
     2024 : STORM / Co-STORM（Stanford，维基式长文） : Gemini Deep Research（Google，2024-12）
     2025 : OpenAI Deep Research（2025-02） : Perplexity Deep Research（2025-02） : Grok DeepSearch（2025-02） : HF open-deep-research（2025-02） : Tongyi DeepResearch（阿里, 2025-10） : MiroThinker（MiroMind, 2025-11）
-    2026 : O-Researcher（2026-01） : REDSearcher（小红书, 2026-02） : MiroFlow（MiroMind, 2026-02） : Marco DeepResearch（阿里国际, 2026-03）
+    2026 : O-Researcher（2026-01） : REDSearcher（小红书, 2026-02） : MiroFlow（MiroMind, 2026-02） : Marco DeepResearch（阿里国际, 2026-03） : Mind DeepResearch（理想, 2026-04） : AgentDisCo（解耦+协作, 2026-05） : DR-Rubric（深研造 RL 奖励, 2026-05）
 ```
 
 ## 分类对比大表
@@ -77,6 +77,9 @@ timeline
 | **MiroFlow / MiroThinker** | 2026-02 | 开源 | MiroMind | 高鲁棒开源深研框架 + 研究 agent 模型，GAIA / BrowseComp(-ZH) / HLE / xbench 多榜 SOTA 级（以原文为准） | [arXiv](https://arxiv.org/abs/2602.22808) ·[模型](https://arxiv.org/abs/2511.11793) |
 | **Marco DeepResearch** | 2026-03 | 论文 | 阿里国际 AIDC | verification-centric：数据合成 / 轨迹 / test-time 三层验证，主打高效 | [arXiv](https://arxiv.org/abs/2603.28376) |
 | **O-Researcher** | 2026-01 | 开源 | 学术团队 | 多 agent 蒸馏 + agentic RL，不依赖闭源数据/模型即达有竞争力的深研成绩 | [arXiv](https://arxiv.org/abs/2601.03743) |
+| **Mind DeepResearch** | 2026-04 | 论文 | 理想汽车 | 约 30B，规划/深搜/报告三 agent + SFT→Search-RL→Report-RL→偏好对齐四阶段，已落地理想产品 | [详情](/agent/deep-research/mind-deepresearch) ·[arXiv](https://arxiv.org/abs/2604.14518) |
+| **AgentDisCo** | 2026-05 | 论文 | Jin 等 | 把深研建模为探索 vs 利用的对抗优化：Critic/Generator 解耦协作 + 代码生成元优化沉淀 policy bank，多个报告基准对标闭源 | [详情](/agent/deep-research/agentdisco) ·[arXiv](https://arxiv.org/abs/2605.11732) |
+| **DR-Rubric** | 2026-05 | 开源 | 复旦 / 小红书等 | 把"造 RL 奖励 rubric"当成深研任务：agentic 检索挖证据→蒸馏成原子可验证约束→GRPO，小模型可自举 | [详情](/agent/deep-research/dr-rubric) ·[arXiv](https://arxiv.org/abs/2606.01091) |
 
 ## 国产与开源的刷榜竞赛（2025–2026）
 
@@ -85,6 +88,7 @@ timeline
 - **Tongyi DeepResearch**（阿里 Tongyi Lab，[arXiv:2510.24701](https://arxiv.org/abs/2510.24701)）：30B-A3B MoE，用 **agentic mid-training + agentic post-training** 端到端训练 + 全自动数据合成管线，把开源深研 agent 拉到与 OpenAI Deep Research 同档；报告 BrowseComp 43.4 / BrowseComp-ZH 46.7 / HLE 32.9 / GAIA 70.9 / xbench-DeepSearch 75.0（以技术报告为准）。**详见 [Tongyi DeepResearch 专页](/agent/deep-research/tongyi-deepresearch)**。
 - **REDSearcher**（小红书 RED × 哈工大 × 上交，[arXiv:2602.14234](https://arxiv.org/abs/2602.14234)）：直击"高质量搜索轨迹与奖励信号极度稀疏"的瓶颈，用**复杂任务合成（图拓扑 + 证据分散）+ 两阶段 mid-training + SFT/Agentic RL** 的低成本统一流水线，并在本地千万级文档闭库里做 rollout 省成本；30B-A3B 报告 BrowseComp 57.4 / GAIA 80.1（以原文为准），并扩展出多模态 REDSearcher-MM。**详见 [REDSearcher 专页](/agent/deep-research/redsearcher)**。
 - **MiroFlow / MiroThinker**（MiroMind，[arXiv:2602.22808](https://arxiv.org/abs/2602.22808) / [arXiv:2511.11793](https://arxiv.org/abs/2511.11793)）：MiroFlow 是高鲁棒的开源深研**框架**（agent graph 编排 + 可选深推理模式），MiroThinker 是配套**模型**（model / context / interactive 三维 scaling）；在 GAIA、BrowseComp-EN/ZH、HLE、xbench-DeepSearch 等多榜刷到开源 SOTA 级（具体分数随版本变化，以各自原文为准）。
+- **Mind DeepResearch**（理想汽车，[arXiv:2604.14518](https://arxiv.org/abs/2604.14518)）：约 30B，把深研拆成**规划 / 深搜 / 报告三 agent**，用 **SFT 冷启动 → Search-RL → Report-RL → 偏好对齐**四阶段分别打磨搜索与写报告能力，并自建 500 条中文 query 的多维 rubric 基准 MindDR Bench；已落地理想自家产品。报告 BrowseComp 42.8 / BrowseComp-ZH 45.7 / xbench-DS 75.0（以原文为准）。**详见 [Mind DeepResearch 专页](/agent/deep-research/mind-deepresearch)**。
 - **Marco DeepResearch**（阿里国际 AIDC，[arXiv:2603.28376](https://arxiv.org/abs/2603.28376)）：把**验证（verification）**贯穿数据合成、轨迹构造、test-time 三层——让 agent 自己当 verifier，抑制误差在各阶段向下游传播，主打"高效深研"。
 - **O-Researcher**（[arXiv:2601.03743](https://arxiv.org/abs/2601.03743)）：用**多 agent 蒸馏 + agentic RL** 的两阶段训练，让多种规模的开源模型在深研榜上取得有竞争力的成绩，且不依赖闭源数据/模型。
 
@@ -124,3 +128,6 @@ timeline
 - *MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents*（arXiv:2511.11793, 2025-11）
 - *Marco DeepResearch: Unlocking Efficient Deep Research Agents via Verification-Centric Design*（arXiv:2603.28376, 2026-03）
 - *O-Researcher: An Open Ended Deep Research Model via Multi-Agent Distillation and Agentic RL*（arXiv:2601.03743, 2026-01）
+- *Mind DeepResearch Technical Report*（理想汽车，arXiv:2604.14518, 2026-04）
+- *AgentDisCo: Towards Disentanglement and Collaboration in Open-ended Deep Research Agents*（arXiv:2605.11732, 2026-05）
+- *Deep Research as Rubric for Reinforcement Learning（DR-Rubric）*（arXiv:2606.01091, 2026-05）·[GitHub](https://github.com/meiotoufa/DR-Rubric)

@@ -6,7 +6,7 @@ title: 评测（Evaluation）总览
 
 > **一句话**：评测的难点不在跑分，而在"这个分数能不能代表你真正关心的能力"——开放生成、主观判断、能力多维让任何单一指标都会失真。
 > 关键年份：MMLU（2020，arXiv:2009.03300）、LLM-as-Judge / MT-Bench / Chatbot Arena（2023，arXiv:2306.05685）、The Leaderboard Illusion（2025，arXiv:2504.20879）。
-> 前置阅读：[SFT 总览](/sft/)、[RLHF 总览](/rlhf/)、[Agent 总览](/agent/)
+> 前置阅读：[A/B 实验与统计](/guide/ab-testing)、[SFT 总览](/sft/)、[RLHF 总览](/rlhf/)、[Agent 总览](/agent/)
 
 训练算法的每一次迭代，最终都要被一个问题拷问：模型变好了吗？这个问题看似简单，却是整个 LLM 工程中最容易自欺的环节。本章不堆砌榜单分数，而是讲清楚评测为什么难、有哪几类方法、它们各自会在什么地方骗你。
 
