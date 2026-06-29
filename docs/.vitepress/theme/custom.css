@@ -103,3 +103,28 @@
 }
 
 ::selection { background: var(--atlas-wash); }
+
+/* 右侧「本页目录」(outline)：加宽目录栏、吃掉右侧空白，让长标题尽量一行显示 */
+/* 宽屏：固定左侧栏、正文区用满视口，正文与右侧目录一起加宽 */
+@media (min-width: 1440px) {
+  .VPSidebar { padding-left: 32px !important; width: var(--vp-sidebar-width) !important; }
+  .VPContent.has-sidebar { padding-left: var(--vp-sidebar-width) !important; padding-right: 32px !important; }
+  .VPNavBar .container { max-width: none !important; }
+  .VPNavBar.has-sidebar .title { padding-left: 32px !important; width: var(--vp-sidebar-width) !important; }
+  .VPNavBar.has-sidebar .content { padding-left: var(--vp-sidebar-width) !important; padding-right: 32px !important; }
+  /* 导航栏底部分割线：VitePress 在 ≥1440 用 (100vw - layout-max)/2 + sidebar 把线右移了，
+     与上面对齐到 sidebar 右沿的正文/侧栏不一致 → 线左侧出现缺口、不对称。拉回 sidebar 宽度。 */
+  .VPNavBar.has-sidebar .divider { padding-left: var(--vp-sidebar-width) !important; }
+  .VPDoc.has-aside .container { max-width: none !important; }
+  .VPDoc.has-aside .content,
+  .VPDoc.has-aside .content-container { max-width: 1180px !important; }
+  .VPDoc.has-aside .aside { max-width: 460px !important; }
+  .VPDoc .aside-container { width: 100% !important; max-width: 460px !important; }
+}
+.VPDocAsideOutline .outline-link {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.5;
+  padding: 6px 0;
+}

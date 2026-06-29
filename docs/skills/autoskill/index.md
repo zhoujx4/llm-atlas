@@ -34,7 +34,7 @@ flowchart LR
 
 | 类别 | 代表方法 | 核心机制 | 详细 |
 | --- | --- | --- | --- |
-| **经验到 Skill** | EvolveR · SAGE · Skill-Pro(ProcMEM) · OpenSkill | 从成功/失败轨迹（或开放世界资料）提炼可复用 skill；Skill-Pro 进一步把 skill 结构化为可执行的 procedural memory | [OpenSkill →](/skills/autoskill/openskill) |
+| **经验到 Skill** | EvolveR · SAGE · Skill-Pro(ProcMEM) · Trace2Skill · OpenSkill | 从成功/失败轨迹（或开放世界资料）提炼可复用 skill；Trace2Skill 并行把多条轨迹蒸馏成一份可迁移技能；Skill-Pro 进一步把 skill 结构化为可执行的 procedural memory | [Trace2Skill →](/skills/autoskill/trace2skill) · [OpenSkill →](/skills/autoskill/openskill) |
 | **Skill 递归进化** | SkillRL · Skill1 · ARISE | skill bank 与 agent policy 共同演化；靠失败反馈或 credit signal 持续生成、修正、检索 skill | — |
 | **Skill 组织与检索** | SkillGraph · SkillOS · SkillOps | 从 flat skill bank 走向图结构、技能策展（curation）、路由（routing）、技能库工程化 | [SkillOS →](/skills/autoskill/skillos) · [SkillOps →](/skills/autoskill/skillops) |
 | **生命周期管理** | MUSE-Autoskill | creation / memory / management / evaluation / refinement，全周期维护 skill | — |
@@ -48,6 +48,7 @@ flowchart LR
 
 - **EvolveR**（[arXiv:2510.16079](https://arxiv.org/abs/2510.16079)，2025-10，浙大 / 上海 AI Lab）：定义一条完整的经验生命周期——在线交互收集轨迹 → 离线自蒸馏（offline self-distillation）把轨迹提炼为抽象的策略性原则库 → 再用 RL 学会把这些原则应用到新任务，使 agent 不是简单模仿历史，而是基于"学到的原则"演化。
 - **SAGE**（Skill-Augmented GRPO，[arXiv:2512.17102](https://arxiv.org/abs/2512.17102)）：把技能库系统性地接入 RL，用 Skill-Augmented GRPO 做自演化；在 AppWrold 上以更少交互步数与更少 token 取得更高的场景目标完成率（数字以原文为准）。
+- **Trace2Skill**（[arXiv:2603.25158](https://arxiv.org/abs/2603.25158)，2026-06，阿里 Qwen）：不走"在线顺序编辑"，而是**并行**分析大量执行轨迹、把局部教训**多对一地合并**成一份可迁移技能（误差/成功双分析师 + 层次化合并 + 归纳泛化）；支持"加深人写技能"与"从弱草稿创建"两模式，技能可跨模型规模/家族/OOD 迁移（35B 轨迹蒸馏的技能让 122B 在 WikiTableQuestions 提升 57.65pp），部署时无需检索。**详见 [Trace2Skill 专页](/skills/autoskill/trace2skill)**。
 - **Skill-Pro / ProcMEM**（[arXiv:2602.01869](https://arxiv.org/abs/2602.01869)，2026-02）：把"被动的情节叙事"形式化为带激活 / 执行 / 终止条件的可执行 Skill（Skill-MDP），并提出 **Non-Parametric PPO**——用语义梯度产候选、用 PPO Gate 做技能验证，在不更新参数、极致内存压缩下保证可复用性。
 - **OpenSkill**（[arXiv:2606.06741](https://arxiv.org/abs/2606.06741)，2026-06）：把"获取来源"从自身轨迹推广到**开放世界**——在无人工监督下从文档 / 仓库 / 网页提取知识与验证锚点，合成可迁移技能，并用自建虚拟任务在缺乏标准答案时自我验证。**详见 [OpenSkill 专页](/skills/autoskill/openskill)**。
 
@@ -91,7 +92,7 @@ timeline
     2023 : Voyager（可执行技能库 + 自我验证）
     2024 : ADAS / Meta Agent Search（自动设计 agent）
     2025 : SKILL.md 自写闭环（Hermes） : EvolveR（经验生命周期） : SAGE（Skill-Augmented GRPO）
-    2026 上半 : SkillRL / Skill-Pro / ARISE（递归进化·经验提炼） : Skill1 / SkillGraph / SkillOS / SkillOps（统一演化·组织检索） : SkillOpt（文本空间优化） : MUSE-Autoskill（生命周期） : OpenSkill（开放世界获取）
+    2026 上半 : SkillRL / Skill-Pro / ARISE（递归进化·经验提炼） : Skill1 / SkillGraph / SkillOS / SkillOps（统一演化·组织检索） : SkillOpt（文本空间优化） : MUSE-Autoskill（生命周期） : Trace2Skill（并行轨迹蒸馏） : OpenSkill（开放世界获取）
 ```
 
 ## 设计要点与边界
@@ -117,6 +118,7 @@ timeline
 - EvolveR: Self-Evolving LLM Agents through an Experience-Driven Lifecycle — [arXiv:2510.16079](https://arxiv.org/abs/2510.16079)
 - SAGE: Reinforcement Learning for Self-Improving Agent with Skill Library — [arXiv:2512.17102](https://arxiv.org/abs/2512.17102)
 - Skill-Pro / ProcMEM: Learning Reusable Skills from Experience via Non-Parametric PPO — [arXiv:2602.01869](https://arxiv.org/abs/2602.01869)
+- Trace2Skill: Distill Trajectory-Local Lessons into Transferable Agent Skills — [arXiv:2603.25158](https://arxiv.org/abs/2603.25158)（[本站专页](/skills/autoskill/trace2skill)）· [GitHub](https://github.com/Qwen-Applications/Trace2Skill)
 - SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning — [arXiv:2602.08234](https://arxiv.org/abs/2602.08234) · [GitHub](https://github.com/aiming-lab/SkillRL)
 - Skill1: Unified Evolution of Skill-Augmented Agents via Reinforcement Learning — [arXiv:2605.06130](https://arxiv.org/abs/2605.06130)
 - ARISE: Agent Reasoning with Intrinsic Skill Evolution in Hierarchical RL — [arXiv:2603.16060](https://arxiv.org/abs/2603.16060)

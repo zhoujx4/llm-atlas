@@ -56,7 +56,7 @@ timeline
     title Deep Research 演进时间线
     2023 : GPT Researcher（开源，planner+execution）
     2024 : STORM / Co-STORM（Stanford，维基式长文） : Gemini Deep Research（Google，2024-12）
-    2025 : OpenAI Deep Research（2025-02） : Perplexity Deep Research（2025-02） : Grok DeepSearch（2025-02） : HF open-deep-research（2025-02） : Tongyi DeepResearch（阿里, 2025-10） : MiroThinker（MiroMind, 2025-11）
+    2025 : OpenAI Deep Research（2025-02） : Perplexity Deep Research（2025-02） : Grok DeepSearch（2025-02） : HF open-deep-research（2025-02） : Tongyi DeepResearch（阿里, 2025-10） : MiroThinker（MiroMind, 2025-11） : Step-DeepResearch（阶跃, 2025-12）
     2026 : O-Researcher（2026-01） : REDSearcher（小红书, 2026-02） : MiroFlow（MiroMind, 2026-02） : Marco DeepResearch（阿里国际, 2026-03） : Mind DeepResearch（理想, 2026-04） : AgentDisCo（解耦+协作, 2026-05） : DR-Rubric（深研造 RL 奖励, 2026-05）
 ```
 
@@ -73,6 +73,7 @@ timeline
 | open-deep-research（HF） | 2025-02 | 开源 | Hugging Face | 24 小时复现 OpenAI 版，基于 smolagents 的 code agent，GAIA 验证集 55% | [详情](/agent/deep-research/open-deep-research) ·[官博](https://huggingface.co/blog/open-deep-research) |
 | open_deep_research（LangChain） | 2025 | 开源 | LangChain | 基于 LangGraph 的 supervisor 架构，派发并行子 agent | [GitHub](https://github.com/langchain-ai/open_deep_research) |
 | **Tongyi DeepResearch** | 2025-10 | 开源 | 阿里 Tongyi Lab | 30B-A3B MoE，agentic mid/post-training，开源刷榜标杆（BrowseComp 43.4 / HLE 32.9 / GAIA 70.9，以技术报告为准） | [详情](/agent/deep-research/tongyi-deepresearch) ·[arXiv](https://arxiv.org/abs/2510.24701) |
+| **Step-DeepResearch** | 2025-12 | 论文 | 阶跃星辰 StepFun | 32B 单 agent ReAct，原子能力数据合成 + mid-training→SFT→RL 三阶段 + checklist Judger，ResearchRubrics 61.42（单 agent 第一），自建中文 ADR-Bench，单篇约 0.5 RMB | [详情](/agent/deep-research/step-deepresearch) ·[arXiv](https://arxiv.org/abs/2512.20491) |
 | **REDSearcher** | 2026-02 | 开源 | 小红书 RED · HIT · SJTU | 针对轨迹/奖励稀疏，低成本统一训练长程搜索 agent，含多模态版（BrowseComp 57.4 / GAIA 80.1，以原文为准） | [详情](/agent/deep-research/redsearcher) ·[arXiv](https://arxiv.org/abs/2602.14234) |
 | **MiroFlow / MiroThinker** | 2026-02 | 开源 | MiroMind | 高鲁棒开源深研框架 + 研究 agent 模型，GAIA / BrowseComp(-ZH) / HLE / xbench 多榜 SOTA 级（以原文为准） | [arXiv](https://arxiv.org/abs/2602.22808) ·[模型](https://arxiv.org/abs/2511.11793) |
 | **Marco DeepResearch** | 2026-03 | 论文 | 阿里国际 AIDC | verification-centric：数据合成 / 轨迹 / test-time 三层验证，主打高效 | [arXiv](https://arxiv.org/abs/2603.28376) |
@@ -86,6 +87,7 @@ timeline
 2025 下半年到 2026 年，Deep Research 从"几家产品发布"演变为一场**公开榜单上的硬碰硬**，主战场是 **BrowseComp / BrowseComp-ZH**（深度浏览找信息）、**HLE**（高难知识）、**GAIA**（通用助理）、**xbench-DeepSearch / WebWalkerQA / FRAMES** 等。这一波最有代表性的、**有论文且刷出高分**的工作几乎都来自国内大厂与开源社区：
 
 - **Tongyi DeepResearch**（阿里 Tongyi Lab，[arXiv:2510.24701](https://arxiv.org/abs/2510.24701)）：30B-A3B MoE，用 **agentic mid-training + agentic post-training** 端到端训练 + 全自动数据合成管线，把开源深研 agent 拉到与 OpenAI Deep Research 同档；报告 BrowseComp 43.4 / BrowseComp-ZH 46.7 / HLE 32.9 / GAIA 70.9 / xbench-DeepSearch 75.0（以技术报告为准）。**详见 [Tongyi DeepResearch 专页](/agent/deep-research/tongyi-deepresearch)**。
+- **Step-DeepResearch**（阶跃星辰 StepFun，[arXiv:2512.20491](https://arxiv.org/abs/2512.20491)）：提出 **"search ≠ research"**，把深研拆成四类**原子能力**分别造数据，用 **agentic mid-training（32K→128K）→ SFT → PPO** 三阶段在 **32B（Qwen2.5-32B-Base）单 agent ReAct** 上训练，并用 **checklist 式 Rubrics Judger** 当 RL 奖励；ResearchRubrics（Scale AI）报告 **61.42**——**单 agent 类第一、总榜仅次于 Gemini DeepResearch、超过 OpenAI DeepResearch**，且单篇成本约 0.5 RMB（不到顶级商用的 1/10）。另自建中文场景基准 **ADR-Bench**（110 条 query，通用 70 + 金融法律 40，人评 + rubric 双轨）。**详见 [Step-DeepResearch 专页](/agent/deep-research/step-deepresearch)**。
 - **REDSearcher**（小红书 RED × 哈工大 × 上交，[arXiv:2602.14234](https://arxiv.org/abs/2602.14234)）：直击"高质量搜索轨迹与奖励信号极度稀疏"的瓶颈，用**复杂任务合成（图拓扑 + 证据分散）+ 两阶段 mid-training + SFT/Agentic RL** 的低成本统一流水线，并在本地千万级文档闭库里做 rollout 省成本；30B-A3B 报告 BrowseComp 57.4 / GAIA 80.1（以原文为准），并扩展出多模态 REDSearcher-MM。**详见 [REDSearcher 专页](/agent/deep-research/redsearcher)**。
 - **MiroFlow / MiroThinker**（MiroMind，[arXiv:2602.22808](https://arxiv.org/abs/2602.22808) / [arXiv:2511.11793](https://arxiv.org/abs/2511.11793)）：MiroFlow 是高鲁棒的开源深研**框架**（agent graph 编排 + 可选深推理模式），MiroThinker 是配套**模型**（model / context / interactive 三维 scaling）；在 GAIA、BrowseComp-EN/ZH、HLE、xbench-DeepSearch 等多榜刷到开源 SOTA 级（具体分数随版本变化，以各自原文为准）。
 - **Mind DeepResearch**（理想汽车，[arXiv:2604.14518](https://arxiv.org/abs/2604.14518)）：约 30B，把深研拆成**规划 / 深搜 / 报告三 agent**，用 **SFT 冷启动 → Search-RL → Report-RL → 偏好对齐**四阶段分别打磨搜索与写报告能力，并自建 500 条中文 query 的多维 rubric 基准 MindDR Bench；已落地理想自家产品。报告 BrowseComp 42.8 / BrowseComp-ZH 45.7 / xbench-DS 75.0（以原文为准）。**详见 [Mind DeepResearch 专页](/agent/deep-research/mind-deepresearch)**。
@@ -123,6 +125,7 @@ timeline
 - Mialon et al., *GAIA: a benchmark for General AI Assistants*（arXiv:2311.12983, 2023-11）
 - Wei et al., *BrowseComp*（arXiv:2504.12516, 2025-04）
 - Tongyi DeepResearch Team, *Tongyi DeepResearch Technical Report*（arXiv:2510.24701, 2025-10）·[GitHub](https://github.com/Alibaba-NLP/DeepResearch)
+- StepFun Agent-Team, *Step-DeepResearch Technical Report*（arXiv:2512.20491, 2025-12）·[GitHub](https://github.com/stepfun-ai/StepDeepResearch)
 - *REDSearcher: A Scalable and Cost-Efficient Framework for Long-Horizon Search Agents*（arXiv:2602.14234, 2026-02）·[GitHub](https://github.com/RedSearchAgent/REDSearcher)
 - *MiroFlow: Towards High-Performance and Robust Open-Source Agent Framework for General Deep Research Tasks*（arXiv:2602.22808, 2026-02）
 - *MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents*（arXiv:2511.11793, 2025-11）

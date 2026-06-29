@@ -33,8 +33,14 @@ flowchart LR
 | 页面 | 回答的问题 |
 | --- | --- |
 | [执行循环与上下文管理](/harness/agent-loop) | loop 的标准形态是什么？历史无限膨胀怎么治？ |
+| [Prompt Engineering（提示工程）](/harness/prompt-engineering) | 演进链第①环：怎么在一次调用里把话问好？天花板在哪？ |
+| [Context Engineering（上下文工程）](/harness/context-engineering) | 第②环：有限窗口里该放哪些信息？写/选/压/隔怎么做？ |
+| [Loop Engineering（循环工程）](/harness/loop-engineering) | 第③环：2026·6 爆火的"设计循环而非 prompt"是什么？怎么叠循环？ |
+| [Harness Engineering（机器工程）](/harness/harness-engineering) | 第④环：把循环+上下文+工具+沙箱整体搭成一台机器 |
 | [沙箱与工具执行](/harness/sandbox) | 动作在哪里执行？怎么隔离风险、怎么把观察回传？ |
 | [代表系统对比](/harness/systems) | Claude Code / SWE-agent / OpenHands 各自怎么取舍？ |
+
+> **一条演进链**：[提示工程](/harness/prompt-engineering) → [上下文工程](/harness/context-engineering) → [循环工程](/harness/loop-engineering) → [Harness 工程](/harness/harness-engineering)，是**包含**而非替代——每一环把前一环裹进更大的范围，本章其余页提供它们各自的机制实现。
 
 ## 为什么 harness 是和权重同量级的杠杆
 
