@@ -271,10 +271,13 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'OpenAI Deep Research', link: '/agent/deep-research/openai-deep-research' },
               { text: 'Tongyi DeepResearch（阿里）', link: '/agent/deep-research/tongyi-deepresearch' },
               { text: 'REDSearcher（小红书）', link: '/agent/deep-research/redsearcher' },
+              { text: 'Marco DeepResearch（阿里国际）', link: '/agent/deep-research/marco-deepresearch' },
               { text: 'Mind DeepResearch（理想）', link: '/agent/deep-research/mind-deepresearch' },
               { text: 'Step-DeepResearch（阶跃）', link: '/agent/deep-research/step-deepresearch' },
               { text: 'AgentDisCo（解耦+协作）', link: '/agent/deep-research/agentdisco' },
               { text: 'DR-Rubric（深研造 RL 奖励）', link: '/agent/deep-research/dr-rubric' },
+              { text: 'QUEST（OSU NLP）', link: '/agent/deep-research/quest' },
+              { text: 'Co-ReAct（阿里通义+清华）', link: '/agent/deep-research/co-react' },
               { text: 'open-deep-research（HF）', link: '/agent/deep-research/open-deep-research' },
               { text: 'STORM / Co-STORM', link: '/agent/deep-research/storm' }
             ]
