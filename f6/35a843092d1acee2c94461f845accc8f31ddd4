@@ -1,0 +1,29 @@
+docs/.vitepress/config/zh.ts
+  s_10c9fc504848aa::t_1e1e20970082ad 274,279-280
+docs/agent/deep-research/co-react.md
+  s_10c9fc504848aa::t_96429e12a4d644 1-202
+docs/agent/deep-research/index.md
+  s_10c9fc504848aa::t_9bb9ce4db4c55e 60,79,84-85,96,98-99,136,141-142
+docs/agent/deep-research/marco-deepresearch.md
+  s_10c9fc504848aa::t_ef00ff25294c2d 1-205
+docs/agent/deep-research/quest.md
+  s_10c9fc504848aa::t_d86c327bb510af 1-186
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f635a843092d1acee2c94461f845accc8f31ddd4",
+  "prompts": {},
+  "sessions": {
+    "s_10c9fc504848aa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e178df9c-d201-4ac8-81bc-82bc81244936",
+        "model": "unknown"
+      },
+      "human_author": "junius <zhoujx4@foxmail.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
