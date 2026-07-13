@@ -7,7 +7,6 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
       { text: '速览', link: '/' },
       { text: '基础模型', link: '/base-models/' },
       { text: '模型架构', link: '/architecture/' },
-      { text: 'AIGC', link: '/aigc/' },
       {
         text: '训练',
         items: [
@@ -31,10 +30,12 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         text: 'Agent',
         items: [
           { text: 'Harness', link: '/harness/' },
+          { text: 'RSI 递归自我改进', link: '/rsi/' },
           { text: 'Agent', link: '/agent/' },
           { text: 'Skills', link: '/skills/' }
         ]
       },
+      { text: 'AIGC', link: '/aigc/' },
       { text: '导读', link: '/guide/' },
       { text: '关于', link: '/about' }
     ],
@@ -82,19 +83,6 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'MoE 混合专家', link: '/architecture/moe' },
           { text: 'VLM 多模态结构', link: '/architecture/vlm' },
           { text: 'Omni 全模态架构', link: '/architecture/omni' }
-        ]
-      },
-      {
-        text: '生成式模型 / AIGC',
-        collapsed: true,
-        items: [
-          { text: '总览', link: '/aigc/' },
-          { text: '扩散模型基础（DDPM/DDIM）', link: '/aigc/diffusion-basics' },
-          { text: 'Latent Diffusion 与 Stable Diffusion', link: '/aigc/latent-diffusion' },
-          { text: '架构演进（U-Net→DiT/Flow）', link: '/aigc/dit-flow' },
-          { text: '条件控制与定制', link: '/aigc/control' },
-          { text: '采样加速与蒸馏', link: '/aigc/acceleration' },
-          { text: '视频与多模态生成', link: '/aigc/video' }
         ]
       },
       {
@@ -200,7 +188,8 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: '总览', link: '/eval/' },
           { text: '基准与数据污染', link: '/eval/benchmarks' },
           { text: 'LLM-as-judge', link: '/eval/llm-as-judge' },
-          { text: 'Arena / Elo 与人类偏好', link: '/eval/arena' }
+          { text: 'Arena / Elo 与人类偏好', link: '/eval/arena' },
+          { text: 'Rubric 化评测与训练', link: '/eval/rubrics' }
         ]
       },
       {
@@ -226,6 +215,13 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'AI co-scientist', link: '/harness/auto-agents/ai-co-scientist' }
             ]
           }
+        ]
+      },
+      {
+        text: 'RSI 递归自我改进',
+        collapsed: true,
+        items: [
+          { text: 'Harness 自我改进', link: '/rsi/' }
         ]
       },
       {
@@ -304,6 +300,19 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
             ]
           },
           { text: 'Skills vs RAG vs 微调', link: '/skills/vs-rag-finetune' }
+        ]
+      },
+      {
+        text: '生成式模型 / AIGC',
+        collapsed: true,
+        items: [
+          { text: '总览', link: '/aigc/' },
+          { text: '扩散模型基础（DDPM/DDIM）', link: '/aigc/diffusion-basics' },
+          { text: 'Latent Diffusion 与 Stable Diffusion', link: '/aigc/latent-diffusion' },
+          { text: '架构演进（U-Net→DiT/Flow）', link: '/aigc/dit-flow' },
+          { text: '条件控制与定制', link: '/aigc/control' },
+          { text: '采样加速与蒸馏', link: '/aigc/acceleration' },
+          { text: '视频与多模态生成', link: '/aigc/video' }
         ]
       }
     ],

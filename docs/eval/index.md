@@ -60,6 +60,7 @@ flowchart LR
 | [基准与自动判分](/eval/benchmarks) | 主流固定基准（知识/推理/代码等）、pass@k 等判分指标、污染检测 | 搭建可复现的回归评测 |
 | [LLM-as-judge](/eval/llm-as-judge) | 用强模型当裁判：打分制 vs. 两两比较、各类偏置与缓解 | 要低成本评开放生成 |
 | [Arena 与人类偏好](/eval/arena) | 盲测对战、Bradley-Terry/Elo 评分、置信区间与排名陷阱 | 关心真实用户偏好 |
+| [Rubric 化评测与训练](/eval/rubrics) | 把"好不好"拆成可核验的criterion清单，贯穿评测/训练/推理全流程 | 评开放任务、想让奖励可诊断、可核验 |
 | [Agent 评测](/agent/) | 多步任务、工具调用、环境交互的评测难点 | 评测 agent 而非单轮对话 |
 
 ## 一条纪律：评测要回到你的真实任务

@@ -76,6 +76,7 @@ SWE-agent 总结的四条原则，是整个 [Harness](/harness/) 章反复出现
 | 把整条循环当 RL 环境直接训练策略 | [Agentic RL](/agent/agentic-rl/) |
 | 给 harness 注入领域知识而不重训 | [Skills](/skills/) |
 | 前三环 | [提示工程](/harness/prompt-engineering) · [上下文工程](/harness/context-engineering) · [循环工程](/harness/loop-engineering) |
+| harness 本身怎么被自动优化、自我改写 | [RSI：Harness 自我改进](/rsi/) |
 
 ## 务实的边界
 
