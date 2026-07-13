@@ -1,0 +1,39 @@
+docs/.vitepress/config/zh.ts
+  s_10c9fc504848aa::t_bbb8bbfa598b9f 33,38,191-192,220-226,304-316
+docs/agent/deep-research/co-react.md
+  s_10c9fc504848aa::t_06c2f6a7a5d055 17
+docs/agent/deep-research/dr-rubric.md
+  s_10c9fc504848aa::t_580d431f92816d 17
+docs/agent/deep-research/marco-deepresearch.md
+  s_10c9fc504848aa::t_120654f1141cd9 17
+docs/agent/deep-research/quest.md
+  s_10c9fc504848aa::t_ec548ba1a1b63e 17
+docs/eval/index.md
+  s_10c9fc504848aa::t_c7670ad9e1bce2 63
+docs/eval/rubrics.md
+  s_10c9fc504848aa::t_a482234e9320d3 1-109
+docs/harness/harness-engineering.md
+  s_10c9fc504848aa::t_5972b900bc3a7a 79
+docs/index.md
+  s_10c9fc504848aa::t_23ff9e78ace466 7,12,26
+docs/rsi/index.md
+  s_10c9fc504848aa::t_8702cb8d186844 1-82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "26221c23bba302c19525b0f7e741e0d11e6e6b16",
+  "prompts": {},
+  "sessions": {
+    "s_10c9fc504848aa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e178df9c-d201-4ac8-81bc-82bc81244936",
+        "model": "unknown"
+      },
+      "human_author": "junius <zhoujx4@foxmail.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
