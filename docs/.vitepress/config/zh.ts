@@ -266,7 +266,10 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: '总览', link: '/agent/deep-research/' },
               { text: 'OpenAI Deep Research', link: '/agent/deep-research/openai-deep-research' },
               { text: 'Tongyi DeepResearch（阿里）', link: '/agent/deep-research/tongyi-deepresearch' },
+              { text: 'DR Tulu（华盛顿大学/AI2）', link: '/agent/deep-research/dr-tulu' },
+              { text: 'MiroThinker（MiroMind）', link: '/agent/deep-research/mirothinker' },
               { text: 'REDSearcher（小红书）', link: '/agent/deep-research/redsearcher' },
+              { text: 'MiroThinker-1.7 & H1（MiroMind）', link: '/agent/deep-research/mirothinker-h1' },
               { text: 'Marco DeepResearch（阿里国际）', link: '/agent/deep-research/marco-deepresearch' },
               { text: 'Mind DeepResearch（理想）', link: '/agent/deep-research/mind-deepresearch' },
               { text: 'Step-DeepResearch（阶跃）', link: '/agent/deep-research/step-deepresearch' },
@@ -274,6 +277,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'DR-Rubric（深研造 RL 奖励）', link: '/agent/deep-research/dr-rubric' },
               { text: 'QUEST（OSU NLP）', link: '/agent/deep-research/quest' },
               { text: 'Co-ReAct（阿里通义+清华）', link: '/agent/deep-research/co-react' },
+              { text: 'Apodex-1.0（Apodex Team）', link: '/agent/deep-research/apodex' },
               { text: 'open-deep-research（HF）', link: '/agent/deep-research/open-deep-research' },
               { text: 'STORM / Co-STORM', link: '/agent/deep-research/storm' }
             ]

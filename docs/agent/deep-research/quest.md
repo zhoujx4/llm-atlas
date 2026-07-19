@@ -180,7 +180,7 @@ RL 阶段基于 **VERL** 的全异步策略优化框架，作者进一步把**�
 ## 在 Deep Research 谱系里的位置
 
 - **vs Tongyi DeepResearch / REDSearcher（~30B，单一答案合成数据）**：这两者的数据合成偏重 fact-seeking 型单一答案 QA，在 BrowseComp / HLE / GAIA 这类任务上仍占优；QUEST 的差异化在于**用统一 rubric 树同时覆盖三种能力**，因此在依赖 citation grounding 与 report synthesis 的 Mind2Web 2、DeepResearch Bench 上反超同规模对手，印证了论文的核心论点——"深研 agent 的能力profile 由其数据合成配方决定"。
-- **vs DR Tulu（8B，只做 report synthesis / citation grounding）**与 **OpenResearcher（30B，只做 fact seeking，且训练管线仅 SFT 一段）**：二者都只覆盖三种能力中的一部分、训练阶段也不完整（DR Tulu 无 mid-training，OpenResearcher 只有 SFT）；QUEST 是同类里唯一同时覆盖三种能力、且 MT→SFT→RL 三阶段俱全并全部开源（数据、合成脚本、训练代码）的工作。
+- **vs [DR Tulu](/agent/deep-research/dr-tulu)（8B，只做 report synthesis / citation grounding）**与 **OpenResearcher（30B，只做 fact seeking，且训练管线仅 SFT 一段）**：二者都只覆盖三种能力中的一部分、训练阶段也不完整（DR Tulu 无 mid-training，OpenResearcher 只有 SFT）；QUEST 是同类里唯一同时覆盖三种能力、且 MT→SFT→RL 三阶段俱全并全部开源（数据、合成脚本、训练代码）的工作。
 - **vs Marco DeepResearch（8B，三层验证）**：两者都强调"验证"在深研训练里的核心地位，但落点不同——Marco DeepResearch 把验证嵌入 QA 数据合成、轨迹构造、测试时扩展三个流水线节点；QUEST 则是把"验证"做进 **rubric 树的叶节点自动核验**里，并额外贡献了 report synthesis 的 pairwise 评测协议与专门的上下文压缩机制，覆盖面更偏"通用深研能力"而非单一 verifier 角色。
 - **vs Step-DeepResearch / Mind DeepResearch（原子能力拆解 / 多 agent 分工）**：这些工作把深研拆成规划/深搜/反思/报告等能力模块分别设计数据与训练阶段；QUEST 走的是"用一套统一数据结构（rubric 树）覆盖多能力"的路线，二者是"分能力造管线"与"统一结构覆盖多能力"两种不同的工程哲学，可对照阅读。
 - 整体定位与"国产/开源刷榜竞赛"背景见 [Deep Research 总览](/agent/deep-research/)。
