@@ -1,0 +1,57 @@
+docs/.vitepress/config/zh.ts
+  s_9065d7e90db0d4::t_825b779c7ca610 269-270,272,280
+docs/agent/deep-research/apodex.md
+  s_f58955783b066e::t_fb514895addf77 1-249
+docs/agent/deep-research/dr-tulu.md
+  s_9065d7e90db0d4::t_639fb8e96df5af 1-205
+docs/agent/deep-research/index.md
+  s_9065d7e90db0d4::t_a17a101ab47d91 59-60,76,78,80-81,89,96,99-100,106,139,143-144,152
+docs/agent/deep-research/mirothinker-h1.md
+  s_19dee4d63d4d21::t_795c25a0ac8ad7 1-217
+docs/agent/deep-research/mirothinker.md
+  s_82bfb925c2c7bc::t_413add097614f4 1-158
+docs/agent/deep-research/quest.md
+  s_9065d7e90db0d4::t_bc8d22c227f1c8 183
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3e13fb0409ed2c533ed5a693e14ce56f8936e9d6",
+  "prompts": {},
+  "sessions": {
+    "s_19dee4d63d4d21": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-ac8343b34b82b8f0c",
+        "model": "unknown"
+      },
+      "human_author": "junius <zhoujx4@foxmail.com>"
+    },
+    "s_82bfb925c2c7bc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-ac1541abfd06c5f96",
+        "model": "unknown"
+      },
+      "human_author": "junius <zhoujx4@foxmail.com>"
+    },
+    "s_9065d7e90db0d4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4456f718-03f1-42b3-9711-2156e89abd74",
+        "model": "unknown"
+      },
+      "human_author": "junius <zhoujx4@foxmail.com>"
+    },
+    "s_f58955783b066e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a1dfd8e5bd7d4284d",
+        "model": "unknown"
+      },
+      "human_author": "junius <zhoujx4@foxmail.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
