@@ -5,6 +5,8 @@ title: 知识蒸馏总览
 # 知识蒸馏（Distillation）总览
 
 > **一句话**：把强教师模型的能力压进小学生模型；LLM 时代按「能否拿到教师 logits」分成黑盒（数据蒸馏 + SFT）与白盒（分布匹配）两条路线。
+>
+> 本页是「黑盒蒸馏系列」的总览，同时交代两条路线的全貌；白盒路线里在学生自采样序列上蒸馏的做法已发展成独立方向，见 [OPD 系列总览](/opd/)。
 
 ## 从软标签到 LLM 蒸馏
 
@@ -78,5 +80,5 @@ timeline
 | 页面 | 内容 |
 | --- | --- |
 | [黑盒蒸馏](/distillation/black-box) | 序列级 KD 原理、Self-Instruct / Alpaca / DeepSeek-R1-Distill 三代管线、数据构造与合规 |
-| [白盒蒸馏](/distillation/white-box) | forward / reverse / skew KL 与广义 JSD、MiniLLM、GKD、DistiLLM 系列、散度 × 采样的设计空间 |
+| [白盒蒸馏](/distillation/white-box) | forward / reverse / skew KL 与广义 JSD、MiniLLM、GKD、DistiLLM 系列、散度 × 采样的设计空间（侧边栏归入 [OPD 系列](/opd/)） |
 | [推理蒸馏](/distillation/reasoning) | 把强推理模型的长思维链专长蒸进小模型：R1-Distill / s1 / LIMO / Sky-T1 / OpenThoughts，「质量≫数量」与蒸馏 vs RL |

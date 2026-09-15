@@ -14,15 +14,15 @@ title: 导读：如何使用本知识库
 
 ```mermaid
 flowchart TB
-    BASE[基座模型<br/>预训练 LLM] --> SFT[SFT<br/>监督微调]
-    SFT --> LORA[LoRA 及变体<br/>参数高效微调]
-    SFT --> DPO[DPO 系列<br/>偏好优化]
-    SFT --> PPO[PPO / GRPO 系列<br/>RLHF / RL]
-    LORA -.可作用于任一阶段.-> DPO
-    LORA -.可作用于任一阶段.-> PPO
-    DPO --> ALIGNED[对齐后模型]
-    PPO --> ALIGNED
-    ALIGNED --> DISTILL[蒸馏<br/>能力压缩与转移]
+    BASE[基座模型<br/>预训练 LLM] --> SFT
+    subgraph POST[后训练]
+        SFT[SFT<br/>监督微调] --> DPO[DPO 系列<br/>偏好优化]
+        SFT --> PPO[PPO / GRPO 系列<br/>RLHF / RL]
+        DPO --> ALIGNED[对齐后模型]
+        PPO --> ALIGNED
+        ALIGNED --> DISTILL[黑盒蒸馏 / OPD<br/>能力压缩与转移]
+        LORA[LoRA 系列<br/>参数高效微调]
+    end
     DISTILL --> INFER[推理与解码<br/>KV Cache / 量化 / 投机]
     ALIGNED --> INFER
     INFER --> HARNESS[Harness<br/>Agent Loop / 沙箱]
@@ -30,13 +30,13 @@ flowchart TB
     AGENT --> SKILLS[Skills<br/>能力封装与组织]
 ```
 
-这条主干并非严格的线性流程。LoRA 是一类参数高效微调技术，可以叠加在 SFT、DPO、RLHF 任意阶段之上；蒸馏既可以发生在对齐之前（用大模型造数据），也可以发生在对齐之后（压缩已对齐模型）；Harness / Agent / Skills 三章则关注"模型训好之后如何被组织成能干活的系统"。
+这条主干并非严格的线性流程。SFT、DPO、PPO/GRPO、蒸馏、LoRA 同属「后训练」，[后训练总览](/post-training/) 把它们放在同一张图上对比。LoRA 是一类参数高效微调技术，可以叠加在 SFT、DPO、RLHF 任意阶段之上；蒸馏既可以发生在对齐之前（用大模型造数据），也可以发生在对齐之后（压缩已对齐模型）；Harness / Agent / Skills 三章则关注"模型训好之后如何被组织成能干活的系统"。
 
 ## 三条阅读路线
 
 不同背景的读者，建议走不同路线。
 
-**新手路线（从零建立全局观）**：先读本页与 [符号约定](/guide/notation)，再按主干顺序走一遍——[SFT 总览](/sft/) → [LoRA](/lora/lora) → [DPO](/dpo/dpo) → [RLHF 总览](/rlhf/) → [PPO](/rlhf/ppo)。这条线帮你把"基座 → 微调 → 对齐"的因果链串起来，理解每一步在解决什么问题。每个总览页都有该章的导航与脉络，不要跳过。
+**新手路线（从零建立全局观）**：先读本页、[符号约定](/guide/notation) 与 [后训练总览](/post-training/)，再按主干顺序走一遍——[SFT 总览](/sft/) → [LoRA](/lora/lora) → [DPO](/dpo/dpo) → [RLHF 总览](/rlhf/) → [PPO](/rlhf/ppo)。这条线帮你把"基座 → 微调 → 对齐"的因果链串起来，理解每一步在解决什么问题。每个总览页都有该章的导航与脉络，不要跳过。
 
 **进阶路线（精读家族变体差异）**：你已经懂主干算法，想搞清楚同一家族内各变体的取舍。建议横向对比阅读：DPO 家族里 [IPO](/dpo/ipo) / [KTO](/dpo/kto) / [SimPO](/dpo/simpo) / [ORPO](/dpo/orpo) / [CPO](/dpo/cpo) 各自改了 DPO 的哪一部分；策略梯度家族里 [GRPO](/rlhf/grpo) / [DAPO](/rlhf/dapo) / [GSPO](/rlhf/gspo) / [RLOO](/rlhf/rloo) / [REINFORCE++](/rlhf/reinforce-plus-plus) 如何在 PPO 基础上去掉 Critic、改造优势估计与重要性采样;LoRA 家族里 [QLoRA](/lora/qlora) / [DoRA](/lora/dora) / [PiSSA](/lora/pissa) / [rsLoRA](/lora/rslora) 分别优化了显存、表达力还是初始化。每页的"与 baseline 对比"表格是这条路线的抓手。
 
@@ -59,11 +59,13 @@ flowchart TB
 | 章节 | 回答的核心问题 |
 | --- | --- |
 | [基座模型](/base-models/) | 主流开源/闭源基座各自的架构取舍与定位 |
+| [后训练总览](/post-training/) | SFT / DPO / RL / 蒸馏 / LoRA 之间是什么关系、该怎么选 |
 | [SFT](/sft/) | 怎么让基座模型学会听指令、按格式回答 |
 | [LoRA](/lora/) | 怎么用更少显存和可训练参数完成微调 |
 | [DPO 系列](/dpo/) | 怎么不训 RM、不跑在线 RL 就对齐人类偏好 |
 | [RLHF / RL](/rlhf/) | 怎么用强化学习把模型能力继续往上推 |
-| [蒸馏](/distillation/) | 怎么把大模型的能力压缩/转移到小模型 |
+| [黑盒蒸馏](/distillation/) | 怎么用教师生成的数据把能力转移到小模型 |
+| [OPD 在线蒸馏](/opd/) | 怎么让教师在学生自己的采样上逐 token 打分，用 RL 的形态做蒸馏 |
 | [推理与解码](/inference/) | 怎么让训好的模型推得更快、更省显存 |
 | [Harness](/harness/) | 怎么搭出让模型循环思考、执行、观测的执行框架 |
 | [Agent](/agent/) | 怎么训练和组织会用工具、能自主决策的模型 |

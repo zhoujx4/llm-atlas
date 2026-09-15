@@ -8,16 +8,18 @@ title: At a Glance
 
 ```mermaid
 flowchart LR
-    PT[Pretrained model] --> SFT[SFT]
-    SFT --> PO[Preference Opt.<br/>DPO family]
-    SFT --> RL[RLHF / RL<br/>PPO family]
-    SFT -.PEFT.-> LORA[LoRA & variants]
+    PT[Pretrained model] --> SFT
+    subgraph POST[Post-training]
+        SFT[SFT] --> PO[Preference Opt.<br/>DPO family]
+        SFT --> RL[RLHF / RL<br/>PPO family]
+        LORA[LoRA & variants<br/>stacks on any stage]
+    end
     PO --> A[Aligned model]
     RL --> A
     A --> AG[Agent / Skills]
 ```
 
-[How to read this atlas →](/en/guide/) · [Notation →](/en/guide/notation)
+[How to read this atlas →](/en/guide/) · [Post-training overview →](/en/post-training/) · [Notation →](/en/guide/notation)
 
 ## Supervised Fine-Tuning
 

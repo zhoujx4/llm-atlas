@@ -10,12 +10,22 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
       {
         text: '训练',
         items: [
-          { text: 'SFT 监督微调', link: '/sft/' },
-          { text: 'LoRA 及变体', link: '/lora/' },
-          { text: 'DPO 系列', link: '/dpo/' },
-          { text: 'PPO / GRPO 系列', link: '/rlhf/' },
-          { text: '蒸馏', link: '/distillation/' },
-          { text: '训练系统 / 分布式', link: '/training-systems/' }
+          {
+            text: '后训练',
+            items: [
+              { text: '后训练总览', link: '/post-training/' },
+              { text: 'SFT 监督微调', link: '/sft/' },
+              { text: 'LoRA 系列', link: '/lora/' },
+              { text: 'DPO 系列', link: '/dpo/' },
+              { text: 'PPO / GRPO 系列', link: '/rlhf/' },
+              { text: '黑盒蒸馏系列', link: '/distillation/' },
+              { text: 'OPD 系列（在线蒸馏）', link: '/opd/' }
+            ]
+          },
+          {
+            text: '基础设施',
+            items: [{ text: '训练系统 / 分布式', link: '/training-systems/' }]
+          }
         ]
       },
       { text: '推理模型', link: '/reasoning/' },
@@ -86,67 +96,82 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: 'SFT 监督微调',
-        collapsed: true,
+        text: '后训练',
+        collapsed: false,
         items: [
-          { text: '总览', link: '/sft/' },
-          { text: '全量微调', link: '/sft/full-finetuning' },
-          { text: '数据构造', link: '/sft/data-construction' },
-          { text: 'Chat Template', link: '/sft/chat-template' },
-          { text: '序列 Packing', link: '/sft/packing' },
-          { text: 'Loss Masking', link: '/sft/loss-masking' }
-        ]
-      },
-      {
-        text: 'LoRA 及变体',
-        collapsed: true,
-        items: [
-          { text: '总览与变体对比', link: '/lora/' },
-          { text: 'LoRA', link: '/lora/lora' },
-          { text: 'QLoRA', link: '/lora/qlora' },
-          { text: 'DoRA', link: '/lora/dora' },
-          { text: 'AdaLoRA', link: '/lora/adalora' },
-          { text: 'rsLoRA', link: '/lora/rslora' },
-          { text: 'LoRA+', link: '/lora/lora-plus' },
-          { text: 'PiSSA', link: '/lora/pissa' }
-        ]
-      },
-      {
-        text: 'DPO 系列',
-        collapsed: true,
-        items: [
-          { text: '总览', link: '/dpo/' },
-          { text: 'DPO', link: '/dpo/dpo' },
-          { text: 'IPO', link: '/dpo/ipo' },
-          { text: 'KTO', link: '/dpo/kto' },
-          { text: 'ORPO', link: '/dpo/orpo' },
-          { text: 'SimPO', link: '/dpo/simpo' },
-          { text: 'CPO', link: '/dpo/cpo' }
-        ]
-      },
-      {
-        text: 'PPO / GRPO 系列',
-        collapsed: true,
-        items: [
-          { text: '总览', link: '/rlhf/' },
-          { text: 'Reward Model', link: '/rlhf/reward-model' },
-          { text: 'PPO', link: '/rlhf/ppo' },
-          { text: 'GRPO', link: '/rlhf/grpo' },
-          { text: '训练循环机制', link: '/rlhf/training-loop' },
-          { text: 'DAPO', link: '/rlhf/dapo' },
-          { text: 'GSPO', link: '/rlhf/gspo' },
-          { text: 'RLOO', link: '/rlhf/rloo' },
-          { text: 'REINFORCE++', link: '/rlhf/reinforce-plus-plus' }
-        ]
-      },
-      {
-        text: '蒸馏',
-        collapsed: true,
-        items: [
-          { text: '总览', link: '/distillation/' },
-          { text: '黑盒蒸馏（数据/CoT）', link: '/distillation/black-box' },
-          { text: '白盒蒸馏（logits KL）', link: '/distillation/white-box' },
-          { text: '推理蒸馏（R1-Distill/s1/LIMO）', link: '/distillation/reasoning' }
+          { text: '总览：两个维度看后训练', link: '/post-training/' },
+          {
+            text: 'SFT 监督微调',
+            collapsed: true,
+            items: [
+              { text: '总览', link: '/sft/' },
+              { text: '全量微调', link: '/sft/full-finetuning' },
+              { text: '数据构造', link: '/sft/data-construction' },
+              { text: 'Chat Template', link: '/sft/chat-template' },
+              { text: '序列 Packing', link: '/sft/packing' },
+              { text: 'Loss Masking', link: '/sft/loss-masking' }
+            ]
+          },
+          {
+            text: 'LoRA 系列',
+            collapsed: true,
+            items: [
+              { text: '总览与变体对比', link: '/lora/' },
+              { text: 'LoRA', link: '/lora/lora' },
+              { text: 'QLoRA', link: '/lora/qlora' },
+              { text: 'DoRA', link: '/lora/dora' },
+              { text: 'AdaLoRA', link: '/lora/adalora' },
+              { text: 'rsLoRA', link: '/lora/rslora' },
+              { text: 'LoRA+', link: '/lora/lora-plus' },
+              { text: 'PiSSA', link: '/lora/pissa' }
+            ]
+          },
+          {
+            text: 'DPO 系列',
+            collapsed: true,
+            items: [
+              { text: '总览', link: '/dpo/' },
+              { text: 'DPO', link: '/dpo/dpo' },
+              { text: 'IPO', link: '/dpo/ipo' },
+              { text: 'KTO', link: '/dpo/kto' },
+              { text: 'ORPO', link: '/dpo/orpo' },
+              { text: 'SimPO', link: '/dpo/simpo' },
+              { text: 'CPO', link: '/dpo/cpo' }
+            ]
+          },
+          {
+            text: 'PPO / GRPO 系列',
+            collapsed: true,
+            items: [
+              { text: '总览', link: '/rlhf/' },
+              { text: 'Reward Model', link: '/rlhf/reward-model' },
+              { text: 'PPO', link: '/rlhf/ppo' },
+              { text: 'GRPO', link: '/rlhf/grpo' },
+              { text: '训练循环机制', link: '/rlhf/training-loop' },
+              { text: 'DAPO', link: '/rlhf/dapo' },
+              { text: 'GSPO', link: '/rlhf/gspo' },
+              { text: 'CISPO', link: '/rlhf/cispo' },
+              { text: 'RLOO', link: '/rlhf/rloo' },
+              { text: 'REINFORCE++', link: '/rlhf/reinforce-plus-plus' }
+            ]
+          },
+          {
+            text: '黑盒蒸馏系列',
+            collapsed: true,
+            items: [
+              { text: '总览', link: '/distillation/' },
+              { text: '黑盒蒸馏（数据/CoT）', link: '/distillation/black-box' },
+              { text: '推理蒸馏（R1-Distill/s1/LIMO）', link: '/distillation/reasoning' }
+            ]
+          },
+          {
+            text: 'OPD 系列（在线蒸馏）',
+            collapsed: true,
+            items: [
+              { text: '总览', link: '/opd/' },
+              { text: '白盒蒸馏（MiniLLM/GKD/DistiLLM）', link: '/distillation/white-box' }
+            ]
+          }
         ]
       },
       {

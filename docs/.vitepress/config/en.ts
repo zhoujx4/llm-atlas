@@ -7,13 +7,15 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
       { text: 'At a Glance', link: '/en/' },
       { text: 'Base Models', link: '/en/base-models/' },
       {
-        text: 'Training',
+        text: 'Post-training',
         items: [
+          { text: 'Overview', link: '/en/post-training/' },
           { text: 'SFT', link: '/en/sft/' },
-          { text: 'LoRA & Variants', link: '/en/lora/' },
+          { text: 'LoRA Family', link: '/en/lora/' },
           { text: 'DPO Family', link: '/en/dpo/' },
           { text: 'PPO / GRPO Family', link: '/en/rlhf/' },
-          { text: 'Distillation', link: '/en/distillation/' }
+          { text: 'Black-Box Distillation', link: '/en/distillation/' },
+          { text: 'OPD (On-Policy Distillation)', link: '/en/opd/' }
         ]
       },
       { text: 'Inference', link: '/en/inference/' },
@@ -59,65 +61,80 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: 'Supervised Fine-Tuning',
-        collapsed: true,
+        text: 'Post-training',
+        collapsed: false,
         items: [
-          { text: 'Overview', link: '/en/sft/' },
-          { text: 'Full Fine-Tuning', link: '/en/sft/full-finetuning' },
-          { text: 'Data Construction', link: '/en/sft/data-construction' },
-          { text: 'Chat Template', link: '/en/sft/chat-template' },
-          { text: 'Sequence Packing', link: '/en/sft/packing' },
-          { text: 'Loss Masking', link: '/en/sft/loss-masking' }
-        ]
-      },
-      {
-        text: 'LoRA & Variants',
-        collapsed: true,
-        items: [
-          { text: 'Overview & Comparison', link: '/en/lora/' },
-          { text: 'LoRA', link: '/en/lora/lora' },
-          { text: 'QLoRA', link: '/en/lora/qlora' },
-          { text: 'DoRA', link: '/en/lora/dora' },
-          { text: 'AdaLoRA', link: '/en/lora/adalora' },
-          { text: 'rsLoRA', link: '/en/lora/rslora' },
-          { text: 'LoRA+', link: '/en/lora/lora-plus' },
-          { text: 'PiSSA', link: '/en/lora/pissa' }
-        ]
-      },
-      {
-        text: 'DPO Family',
-        collapsed: true,
-        items: [
-          { text: 'Overview', link: '/en/dpo/' },
-          { text: 'DPO', link: '/en/dpo/dpo' },
-          { text: 'IPO', link: '/en/dpo/ipo' },
-          { text: 'KTO', link: '/en/dpo/kto' },
-          { text: 'ORPO', link: '/en/dpo/orpo' },
-          { text: 'SimPO', link: '/en/dpo/simpo' },
-          { text: 'CPO', link: '/en/dpo/cpo' }
-        ]
-      },
-      {
-        text: 'PPO / GRPO Family',
-        collapsed: true,
-        items: [
-          { text: 'Overview', link: '/en/rlhf/' },
-          { text: 'Reward Model', link: '/en/rlhf/reward-model' },
-          { text: 'PPO', link: '/en/rlhf/ppo' },
-          { text: 'GRPO', link: '/en/rlhf/grpo' },
-          { text: 'DAPO', link: '/en/rlhf/dapo' },
-          { text: 'GSPO', link: '/en/rlhf/gspo' },
-          { text: 'RLOO', link: '/en/rlhf/rloo' },
-          { text: 'REINFORCE++', link: '/en/rlhf/reinforce-plus-plus' }
-        ]
-      },
-      {
-        text: 'Distillation',
-        collapsed: true,
-        items: [
-          { text: 'Overview', link: '/en/distillation/' },
-          { text: 'Black-Box (Data/CoT)', link: '/en/distillation/black-box' },
-          { text: 'White-Box (Logits KL)', link: '/en/distillation/white-box' }
+          { text: 'Overview: Two Dimensions', link: '/en/post-training/' },
+          {
+            text: 'Supervised Fine-Tuning',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/en/sft/' },
+              { text: 'Full Fine-Tuning', link: '/en/sft/full-finetuning' },
+              { text: 'Data Construction', link: '/en/sft/data-construction' },
+              { text: 'Chat Template', link: '/en/sft/chat-template' },
+              { text: 'Sequence Packing', link: '/en/sft/packing' },
+              { text: 'Loss Masking', link: '/en/sft/loss-masking' }
+            ]
+          },
+          {
+            text: 'LoRA Family',
+            collapsed: true,
+            items: [
+              { text: 'Overview & Comparison', link: '/en/lora/' },
+              { text: 'LoRA', link: '/en/lora/lora' },
+              { text: 'QLoRA', link: '/en/lora/qlora' },
+              { text: 'DoRA', link: '/en/lora/dora' },
+              { text: 'AdaLoRA', link: '/en/lora/adalora' },
+              { text: 'rsLoRA', link: '/en/lora/rslora' },
+              { text: 'LoRA+', link: '/en/lora/lora-plus' },
+              { text: 'PiSSA', link: '/en/lora/pissa' }
+            ]
+          },
+          {
+            text: 'DPO Family',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/en/dpo/' },
+              { text: 'DPO', link: '/en/dpo/dpo' },
+              { text: 'IPO', link: '/en/dpo/ipo' },
+              { text: 'KTO', link: '/en/dpo/kto' },
+              { text: 'ORPO', link: '/en/dpo/orpo' },
+              { text: 'SimPO', link: '/en/dpo/simpo' },
+              { text: 'CPO', link: '/en/dpo/cpo' }
+            ]
+          },
+          {
+            text: 'PPO / GRPO Family',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/en/rlhf/' },
+              { text: 'Reward Model', link: '/en/rlhf/reward-model' },
+              { text: 'PPO', link: '/en/rlhf/ppo' },
+              { text: 'GRPO', link: '/en/rlhf/grpo' },
+              { text: 'DAPO', link: '/en/rlhf/dapo' },
+              { text: 'GSPO', link: '/en/rlhf/gspo' },
+              { text: 'CISPO', link: '/en/rlhf/cispo' },
+              { text: 'RLOO', link: '/en/rlhf/rloo' },
+              { text: 'REINFORCE++', link: '/en/rlhf/reinforce-plus-plus' }
+            ]
+          },
+          {
+            text: 'Black-Box Distillation',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/en/distillation/' },
+              { text: 'Black-Box (Data/CoT)', link: '/en/distillation/black-box' }
+            ]
+          },
+          {
+            text: 'OPD (On-Policy Distillation)',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/en/opd/' },
+              { text: 'White-Box (Logits KL)', link: '/en/distillation/white-box' }
+            ]
+          }
         ]
       },
       {

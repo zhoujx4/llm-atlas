@@ -10,11 +10,14 @@ title: 全景速览
 flowchart LR
     BM[基础模型] -.架构.-> ARCH[模型架构]
     BM -.另一条赛道·生成式.-> AIGC[AIGC / 扩散]
-    BM --> SFT[SFT]
-    SFT -.PEFT.-> LORA[LoRA 及变体]
-    SFT --> PO[DPO 系列]
-    SFT --> RL[PPO/GRPO 系列]
-    SFT --> DST[蒸馏]
+    BM --> SFT
+    subgraph POST[后训练]
+        SFT[SFT] ~~~ LORA[LoRA 系列]
+        SFT --> PO[DPO 系列]
+        SFT --> RL[PPO/GRPO 系列]
+        SFT --> DST[黑盒蒸馏系列]
+        SFT --> OPD[OPD 系列<br/>在线蒸馏]
+    end
     PO --> A[对齐模型]
     RL --> A
     RL -.可验证奖励.-> RSN[推理模型]
@@ -26,4 +29,4 @@ flowchart LR
     HN -.自我改进.-> RSI[RSI]
 ```
 
-[如何阅读本知识库 →](/guide/) · [符号约定 →](/guide/notation)
+[如何阅读本知识库 →](/guide/) · [后训练总览 →](/post-training/) · [符号约定 →](/guide/notation)

@@ -59,6 +59,7 @@ timeline
          : REINFORCE++（全局批归一化）
          : DAPO（解耦裁剪+动态采样）
          : GSPO（序列级重要性比）
+         : CISPO（裁剪重要性权重而非 token 更新）
 ```
 
 | 算法 | 年份 | Critic/Value | 优势估计 | 同时驻留模型 | 代表使用方 |
@@ -69,20 +70,22 @@ timeline
 | [REINFORCE++](/rlhf/reinforce-plus-plus) | 2025 | 不需要 | 全局批基线 | 3 | 开源社区 |
 | [DAPO](/rlhf/dapo) | 2025 | 不需要 | 组内相对（多项修正） | 3 | 大规模长思维链 RL |
 | [GSPO](/rlhf/gspo) | 2025 | 不需要 | 序列级重要性比 | 3 | Qwen |
+| [CISPO](/rlhf/cispo) | 2025 | 不需要 | 组内相对，裁剪 IS 权重、保留全部 token 梯度 | 3 | MiniMax-M1 |
 
-演化主线非常清晰：PPO 是完整但昂贵的起点（4 个模型同时驻留显存），其后的所有变体几乎都在做一件事——**去掉 critic**。GRPO 用"同一 prompt 采样一组、组内标准化"来替代 value 函数提供基线，[RLOO](/rlhf/rloo) 用留一法、[REINFORCE++](/rlhf/reinforce-plus-plus) 用全局批均值做同样的事。[DAPO](/rlhf/dapo) 与 [GSPO](/rlhf/gspo) 则针对 GRPO 在长序列、长思维链场景暴露的具体问题（长度归一化偏置、token 级比值噪声、训练不稳定）做修正。
+演化主线非常清晰：PPO 是完整但昂贵的起点（4 个模型同时驻留显存），其后的所有变体几乎都在做一件事——**去掉 critic**。GRPO 用"同一 prompt 采样一组、组内标准化"来替代 value 函数提供基线，[RLOO](/rlhf/rloo) 用留一法、[REINFORCE++](/rlhf/reinforce-plus-plus) 用全局批均值做同样的事。[DAPO](/rlhf/dapo) 与 [GSPO](/rlhf/gspo) 则针对 GRPO 在长序列、长思维链场景暴露的具体问题（长度归一化偏置、token 级比值噪声、训练不稳定）做修正。[CISPO](/rlhf/cispo) 则发现 PPO/GRPO 的裁剪会让 "Wait"、"Recheck" 这类低概率反思 token 直接失去梯度，改为裁剪重要性权重本身，让所有 token 始终参与更新。
 
 **选型经验**：
 - 通用对齐、奖励信号稠密且来自 RM：PPO 仍是最稳的方案，但工程门槛高。
 - 数学/代码等可验证任务、追求简洁与显存友好：首选 GRPO 系列。
 - 显存极度受限或想要最简实现：RLOO / REINFORCE++。
 - 大规模长思维链训练遇到不稳定：参考 DAPO / GSPO 的具体修正。
+- 每批数据要做很多轮 off-policy 更新、长思维链迟迟不涌现：参考 CISPO，避免低概率关键 token 被裁剪踢出梯度。
 - 只有离线偏好数据、不想搭 RL 基础设施：直接走 [DPO](/dpo/dpo) 家族。
 
 ## 子主题导航
 
 - [Reward Model](/rlhf/reward-model)：奖励从哪里来，以及它的种种坑（reward hacking、长度偏置、ORM vs PRM）
-- 算法演化：[PPO](/rlhf/ppo) → [GRPO](/rlhf/grpo) → [DAPO](/rlhf/dapo) / [GSPO](/rlhf/gspo) → [RLOO](/rlhf/rloo) → [REINFORCE++](/rlhf/reinforce-plus-plus)
+- 算法演化：[PPO](/rlhf/ppo) → [GRPO](/rlhf/grpo) → [DAPO](/rlhf/dapo) / [GSPO](/rlhf/gspo) / [CISPO](/rlhf/cispo) → [RLOO](/rlhf/rloo) → [REINFORCE++](/rlhf/reinforce-plus-plus)
 - 工程视角：[训练循环机制](/rlhf/training-loop)——一个 batch 里 rollout / learning 两阶段怎么走、policy 参数在哪一步被更新（PPO/GRPO 共通骨架）
 - 平行路线：[DPO 家族](/dpo/)，符号体系见 [记号约定](/guide/notation)
 
@@ -92,3 +95,4 @@ timeline
 - Schulman et al., 2017. *Proximal Policy Optimization Algorithms.* arXiv:1707.06347
 - Shao et al., 2024. *DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models.* arXiv:2402.03300
 - DeepSeek-AI, 2025. *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.* arXiv:2501.12948
+- MiniMax, 2025. *MiniMax-M1: Scaling Test-Time Compute Efficiently with Lightning Attention.* arXiv:2506.13585（CISPO）

@@ -6,7 +6,7 @@ title: 白盒蒸馏（分布级蒸馏）
 
 > **一句话**：教师 logits 在手时，逐 token 匹配全词表分布；现代方法的设计空间是「散度怎么选（forward / reverse / skew KL、广义 JSD）× 在谁的序列上算（固定数据 off-policy vs 学生采样 on-policy）」。代表：*MiniLLM*（2023）、*GKD: On-Policy Distillation of Language Models*（2023）、*DistiLLM*（2024）。
 >
-> 前置阅读：[知识蒸馏总览](/distillation/) · [黑盒蒸馏](/distillation/black-box)
+> 前置阅读：[知识蒸馏总览](/distillation/) · [黑盒蒸馏](/distillation/black-box) · 所属分组：[OPD 系列总览](/opd/)
 
 ## 直觉与动机
 

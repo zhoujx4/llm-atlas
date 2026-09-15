@@ -11,11 +11,13 @@
 ```
 导读          如何阅读 · 符号约定
 基础模型       Qwen · DeepSeek · GLM · Llama · Kimi · MiniMax · StepFun · Gemini · Claude · OpenAI
-SFT           全量微调 · 数据构造 · Chat Template · Packing · Loss Masking
-LoRA 及变体    LoRA · QLoRA · DoRA · AdaLoRA · rsLoRA · LoRA+ · PiSSA
-DPO 系列       DPO · IPO · KTO · ORPO · SimPO · CPO
-PPO/GRPO 系列  Reward Model · PPO · GRPO · DAPO · GSPO · RLOO · REINFORCE++
-蒸馏           黑盒（数据/CoT） · 白盒（logits KL）
+后训练         总览：两个维度（训练目标 × 参数更新方式）· 统一梯度视角 · 典型流水线 · 选型
+              ├ SFT：全量微调 · 数据构造 · Chat Template · Packing · Loss Masking
+              ├ LoRA 系列：LoRA · QLoRA · DoRA · AdaLoRA · rsLoRA · LoRA+ · PiSSA
+              ├ DPO 系列：DPO · IPO · KTO · ORPO · SimPO · CPO
+              ├ PPO/GRPO 系列：Reward Model · PPO · GRPO · 训练循环 · DAPO · GSPO · RLOO · REINFORCE++
+              ├ 黑盒蒸馏系列：黑盒（数据/CoT） · 推理蒸馏
+              └ OPD 系列（在线蒸馏）：总览 · 白盒蒸馏（MiniLLM/GKD/DistiLLM）
 推理与解码     KV Cache & PagedAttention · 量化（GPTQ/AWQ/FP8） · 投机解码
 Harness       执行循环与上下文 · 沙箱与工具执行 · 代表系统对比
               └ 自主科研与自动化 Agent：AI Scientist · Agent Laboratory · AIDE · AI co-scientist
@@ -41,7 +43,7 @@ push 到 `main` 分支后，GitHub Actions 会自动构建并部署到 GitHub Pa
 
 ## 内容组织约定
 
-- **目录 = URL = 侧边栏分组**：每个算法版块一个顶层目录（如 `docs/dpo/`），版块内每个算法一个 `.md` 文件，版块必有 `index.md` 总览页（含家族演化 Mermaid 图与变体对比表）。
+- **目录 = URL = 侧边栏分组**：每个算法版块一个顶层目录（如 `docs/dpo/`），版块内每个算法一个 `.md` 文件，版块必有 `index.md` 总览页（含家族演化 Mermaid 图与变体对比表）。例外：「后训练」是侧边栏上的上层分组（总览页在 `docs/post-training/`），下属 `sft/`、`lora/`、`dpo/`、`rlhf/`、`distillation/`、`opd/` 仍保持顶层目录（白盒蒸馏页留在 `distillation/white-box`，侧边栏归入 OPD 系列），以免已发布的链接失效。
 - **文件命名**：小写连字符，即 URL 路径（`reinforce-plus-plus.md` → `/rlhf/reinforce-plus-plus`）。
 - **站内链接**：写不含 base 的绝对路径（如 `/dpo/dpo`），**不要**手写 `/llm-atlas/` 前缀。
 - **数学公式**：`$...$` 行内、`$$...$$` 块级，记号遵循 [符号约定](docs/guide/notation.md)。

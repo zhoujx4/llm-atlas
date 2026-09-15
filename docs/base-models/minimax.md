@@ -78,7 +78,7 @@ flowchart LR
 
 ### RL 体系：CISPO 与 Forge
 
-M1 提出的 **CISPO** 是 [GRPO](/rlhf/grpo)/[DAPO](/rlhf/dapo) 同族的策略优化改造：不裁剪 token 更新本身，而是裁剪重要性采样权重 $\rho_t$，保留低概率关键 token（如反思转折词）的梯度。配合混合注意力的低生成成本，M1 的完整 RL 训练仅用 512 张 H800 三周完成。
+M1 提出的 **[CISPO](/rlhf/cispo)** 是 [GRPO](/rlhf/grpo)/[DAPO](/rlhf/dapo) 同族的策略优化改造：不裁剪 token 更新本身，而是裁剪重要性采样权重 $\rho_t$，保留低概率关键 token（如反思转折词）的梯度。配合混合注意力的低生成成本，M1 的完整 RL 训练仅用 512 张 H800 三周完成。
 
 ![CISPO 与 GRPO、DAPO 在 AIME 2024 上的收敛对比（Qwen2.5-32B-base）](/papers/minimax/cispo.png)
 
