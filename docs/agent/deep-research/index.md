@@ -1,8 +1,8 @@
 ---
-title: Deep Research（深度研究 Agent）总览
+title: Deep Research 总览
 ---
 
-# Deep Research（深度研究 Agent）总览
+# Deep Research 总览
 
 > **一句话**：Deep Research 指一类自治 agent——给一个研究型问题，它自主完成"规划 → 多步网络检索 → 阅读 → 反思补检 → 综合 → 带引用成稿"的迭代循环，产出一篇可核查的长篇报告；它不是一次性的联网问答，而是把"做研究"本身当成一段可以跑几分钟到几十分钟的 agent 轨迹。代表性起点是 OpenAI Deep Research（2025-02）与 Google Gemini Deep Research（2024-12），开源侧有 GPT Researcher、HF open-deep-research（2025-02）、Stanford STORM（2024）等。
 

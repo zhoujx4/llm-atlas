@@ -2,7 +2,7 @@
 title: 全量微调
 ---
 
-# 全量微调（Full Fine-Tuning）
+# 全量微调
 
 > **一句话**：更新模型全部参数的标准 SFT 做法——效果上限最高、对数据最敏感，但显存开销也最大（Adam 下约为参数量的 16 倍字节）。论文：*Training Language Models to Follow Instructions with Human Feedback*（InstructGPT，2022）。
 > 代表工作年份：2022（InstructGPT）· 机构/团队：OpenAI · 会议/来源：arXiv:2203.02155（全量微调为通用工程实践，此处以确立后训练范式的标志性工作为锚）

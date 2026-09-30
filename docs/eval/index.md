@@ -1,8 +1,8 @@
 ---
-title: 评测（Evaluation）总览
+title: 评测总览
 ---
 
-# 评测（Evaluation）总览
+# 评测总览
 
 > **一句话**：评测的难点不在跑分，而在"这个分数能不能代表你真正关心的能力"——开放生成、主观判断、能力多维让任何单一指标都会失真。
 > 关键年份：MMLU（2020，arXiv:2009.03300）、LLM-as-Judge / MT-Bench / Chatbot Arena（2023，arXiv:2306.05685）、The Leaderboard Illusion（2025，arXiv:2504.20879）。

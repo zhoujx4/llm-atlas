@@ -2,6 +2,8 @@
 title: 注意力变体（MHA / MQA / GQA / MLA）
 ---
 
+# 注意力变体（MHA / MQA / GQA / MLA）
+
 > **一句话**：从 MHA 到 MQA、GQA、MLA，这条演进主线本质上只做一件事——在尽量不掉质量的前提下，把自回归 decode 阶段的 **KV cache** 压下去。
 > 关键年份：MQA（Shazeer 2019, arXiv:1911.02150）、GQA（Ainslie et al. 2023, arXiv:2305.13245）、MLA / DeepSeek-V2（2024, arXiv:2405.04434）。
 > 前置阅读：[Transformer 基础架构](/architecture/transformer)、[KV cache 原理](/inference/kv-cache)、[DeepSeek 系列基座](/base-models/deepseek)。

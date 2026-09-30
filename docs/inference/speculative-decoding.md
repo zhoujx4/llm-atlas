@@ -2,7 +2,7 @@
 title: 投机解码
 ---
 
-# 投机解码（Speculative Decoding）
+# 投机解码
 
 > **一句话**：让小草稿模型先猜 $\gamma$ 个 token，目标大模型一次前向并行验证，配合拒绝采样在数学上严格保持目标分布——输出不变、decode 加速 2-3 倍起步。论文：*Fast Inference from Transformers via Speculative Decoding*（2022，ICML 2023）。
 >

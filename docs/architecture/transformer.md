@@ -2,6 +2,8 @@
 title: Transformer 基础架构
 ---
 
+# Transformer 基础架构
+
 > **一句话**：Transformer 用「自注意力 + 前馈网络 + 残差 + 归一化」堆叠出可大规模并行训练的序列建模骨架，而现代 LLM 几乎清一色地走向了「decoder-only」这一分支。
 > 关键年份：Attention Is All You Need（Vaswani et al., 2017, arXiv:1706.03762），GLU Variants Improve Transformer / SwiGLU（Shazeer, 2020, arXiv:2002.05202）。
 > 前置阅读：[模型架构总览](/architecture/)、[注意力变体（MHA/MQA/GQA/MLA）](/architecture/attention)、[位置编码与归一化](/architecture/positional-norm)

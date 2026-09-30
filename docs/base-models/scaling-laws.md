@@ -1,8 +1,8 @@
 ---
-title: Scaling Laws（规模定律）
+title: Scaling Laws
 ---
 
-# Scaling Laws（规模定律）
+# Scaling Laws
 
 > **一句话**：Scaling Law 用幂律刻画"模型规模 $N$ / 数据量 $D$ / 计算量 $C$"与预训练损失之间的关系，回答"给定算力，该把钱花在更大的模型还是更多的数据上"这一投资决策；Kaplan 2020 起步并倾向"砸大模型"，Chinchilla 2022 修正为参数与数据**等比例放大**（约 20 tokens/参数），后续又延伸到涌现之争、数据墙与推理感知三条现实分支。
 >

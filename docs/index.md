@@ -16,17 +16,19 @@ flowchart LR
         SFT --> PO[DPO 系列]
         SFT --> RL[PPO/GRPO 系列]
         SFT --> DST[黑盒蒸馏系列]
-        SFT --> OPD[OPD 系列<br/>在线蒸馏]
+        SFT --> OPD[OPD<br/>白盒/黑盒/自蒸馏]
     end
     PO --> A[对齐模型]
     RL --> A
     RL -.可验证奖励.-> RSN[推理模型]
     A --> INF[推理与解码]
     A -.度量.-> EVAL[评测]
-    A --> AG[Agent]
-    AG -.脚手架.-> HN[Harness]
-    AG -.能力扩展.-> SK[Skills]
-    HN -.自我改进.-> RSI[RSI]
+    A --> AGT
+    subgraph AGENT[Agent]
+        AGT[Agent 训练] -.脚手架.-> HN[Harness 工程]
+        HN -.能力扩展.-> SK[Skills]
+    end
+    HN -.自我改进.-> RSI[RSI 递归自我改进]
 ```
 
 [如何阅读本知识库 →](/guide/) · [后训练总览 →](/post-training/) · [符号约定 →](/guide/notation)

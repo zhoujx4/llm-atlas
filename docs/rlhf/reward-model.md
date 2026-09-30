@@ -1,8 +1,8 @@
 ---
-title: Reward Model（奖励模型）
+title: Reward Model
 ---
 
-# Reward Model（奖励模型）
+# Reward Model
 
 > **一句话**：在人类偏好对上训练一个标量打分模型 $r_\phi(x,y)$，作为 RL 阶段的奖励来源；它把"人类喜欢什么"压缩进一个可在线查询的函数，其质量直接决定 RLHF 的上限。出自 *InstructGPT*（Ouyang et al., 2022）。
 > 提出年份：2022 · 机构/团队：OpenAI · 会议/来源：NeurIPS 2022 / arXiv:2203.02155（Bradley-Terry RM 思路可上溯至 Stiennon et al., 2020, arXiv:2009.01325）

@@ -2,7 +2,7 @@
 title: 模型量化
 ---
 
-# 模型量化（Quantization）
+# 模型量化
 
 > **一句话**：把权重（以及激活、KV cache）从 FP16 压到 8/4/3 bit，直接减少 decode 阶段每步必须从 HBM 搬运的字节数和显存占用——量化是对 memory-bound 瓶颈最"对症"的优化。代表工作：*GPTQ*（2022）、*SmoothQuant*（2022）、*AWQ*（2023）、*FP8 Formats for Deep Learning*（2022）。
 >

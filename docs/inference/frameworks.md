@@ -2,7 +2,7 @@
 title: 推理框架与服务引擎
 ---
 
-# 推理框架与服务引擎（vLLM / SGLang / TensorRT-LLM）
+# 推理框架与服务引擎
 
 > **一句话**：推理框架的价值不在于发明某一项新算法，而在于把 PagedAttention、continuous batching、prefix caching、PD 分离等分散的优化机制工程化成一个"高吞吐 + 低延迟"的服务系统——vLLM 易用通用、生态最广，SGLang 强在前缀复用（RadixAttention）与结构化输出，TensorRT-LLM 走 NVIDIA 编译式极致优化。
 >

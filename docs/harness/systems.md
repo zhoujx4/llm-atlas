@@ -2,7 +2,7 @@
 title: 代表系统对比
 ---
 
-# 代表系统对比（Representative Agent Harnesses）
+# 代表系统对比
 
 > **一句话**：把 [Harness 总览](/harness/) 的三件套（工具集 / 上下文 / 执行环境）落到四个真实系统——SWE-agent 证明「接口即性能」、OpenHands 给出可复现的开放平台、Claude Code 押注「单循环 + 极简」、GitHub Copilot 把 agent 包进 CI 流水线——看清同一组设计选择在不同约束下如何分叉。
 >

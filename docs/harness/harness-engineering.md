@@ -1,8 +1,8 @@
 ---
-title: Harness Engineering（机器工程）
+title: Harness Engineering
 ---
 
-# Harness Engineering（机器工程）
+# Harness Engineering
 
 > **一句话**：Harness Engineering（harness 工程 / "机器工程"）是这条链的**最外环**——不再只设计某一句 prompt、某一步上下文、某一个循环，而是把**循环 + 上下文管理 + 工具集 + 沙箱 + 记忆 + 可观测性**整体设计成一台包在模型外面、能把活自己干完的机器。它的主张：**同一个模型，配上更好的 harness，能力可以差出一个数量级——harness 是和模型权重同量级的杠杆。**
 >

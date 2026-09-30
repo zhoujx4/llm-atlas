@@ -1,8 +1,8 @@
 ---
-title: 多智能体（Multi-Agent）
+title: 多智能体
 ---
 
-# 多智能体（Multi-Agent）
+# 多智能体
 
 > **一句话**：用多个分工不同的 agent 协作完成超出单 agent 上下文与吞吐边界的任务；核心设计维度是编排拓扑、上下文隔离与 token 预算。代表系统：*AutoGen*（2023）、*MetaGPT*（2023）、Anthropic Research（2025）。
 >

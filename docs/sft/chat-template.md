@@ -1,8 +1,8 @@
 ---
-title: Chat Template 对话模板
+title: Chat Template
 ---
 
-# Chat Template 对话模板
+# Chat Template
 
 > **一句话**：Chat Template 是把多轮对话（system / user / assistant）序列化成单条 token 序列的格式约定，训练与推理必须使用**完全一致**的同一套模板，否则模型行为会严重错位。
 > 代表工作年份：2023（OpenAI ChatML 随 ChatGPT/Whisper API 于 2023-03 推出，奠定主流对话模板格式）· Chat Template 本身为通用工程约定，无单一论文年份

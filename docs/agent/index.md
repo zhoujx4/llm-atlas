@@ -1,10 +1,10 @@
 ---
-title: Agent 与 Skill 总览
+title: Agent 总览
 ---
 
-# Agent 与 Skill 总览
+# Agent 总览
 
-> **一句话**：让模型不只是"回答"，而是"行动"：发起工具调用、消化环境反馈、完成多步任务。本版块讲数据怎么造、模型怎么训、多个 agent 怎么组织。
+> **一句话**：让模型不只是"回答"，而是"行动"：发起工具调用、消化环境反馈、完成多步任务。本章按「改什么」分三层——训练侧改权重，工程侧改模型外面那层机器，案例侧看别人怎么把两者拼起来。
 
 ## 从"生成"到"行动"
 
@@ -15,19 +15,31 @@ title: Agent 与 Skill 总览
 
 这两点分别决定了 agent 的 SFT 数据格式（见 [Tool Use 训练](/agent/tool-use)）和 RL 算法适配（见 [Agentic RL](/agent/agentic-rl/)）。执行循环、沙箱等工程基础设施在 [Harness 版块](/harness/)（[agent loop](/harness/agent-loop)、[沙箱](/harness/sandbox)），本版块聚焦算法与训练。
 
-## 版块地图
+## 本章三层：训练、工程、案例
 
 ```mermaid
 flowchart TD
-    AGENT[Agent 能力] --> TU[Tool Use 训练<br/>单步调用正确性<br/>数据合成 + SFT]
-    AGENT --> ARL[Agentic RL<br/>多轮任务完成率<br/>结果奖励 + 轨迹优化]
-    AGENT --> MA[多智能体<br/>编排与并行<br/>多数不训练]
-    AGENT --> SKILL[Agent Skills<br/>领域知识按需加载<br/>零训练]
-    TU --> ARL
-    ARL --> MA
+    A[Agent 能力] --> T[训练侧<br/>改模型权重]
+    A --> E[工程侧<br/>权重不动<br/>改外面那层机器]
+    A --> C[案例侧<br/>别人怎么把前两层拼起来]
+    T --> T1[Tool Use 训练<br/>单步调用正确性]
+    T --> T2[Agentic RL<br/>多轮任务完成率]
+    E --> E1[Harness 工程<br/>执行循环 · 上下文 · 沙箱 · 编排]
+    E --> E2[Skills<br/>能力按需加载，零训练]
+    C --> C1[代表框架与系统]
+    C --> C2[Deep Research]
+    C --> C3[自主科研 Agent]
 ```
 
-四个子方向构成一条能力阶梯：先让模型**单步调用正确**（schema 遵循、参数抽取、该拒绝时拒绝），再用 RL 优化**多轮任务成功率**，最后在系统层组织**多个 agent 并行协作**；[Skills](/skills/) 则是与训练正交的路线——把领域知识打包成可按需加载的文件，不动权重。
+| 层 | 改什么 | 页面 |
+| --- | --- | --- |
+| **训练** | 模型权重 | [Tool Use 训练](/agent/tool-use)、[Agentic RL](/agent/agentic-rl/) |
+| **工程** | 模型外面的机器 | [Harness 工程](/harness/)、[Skills](/skills/)、[多智能体编排](/agent/multi-agent) |
+| **案例** | 前两层的具体组合 | [代表框架与系统](/agent/frameworks/)、[Deep Research](/agent/deep-research/)、[自主科研 Agent](/harness/auto-agents/) |
+
+还有一层跨在两侧之上：[RSI 递归自我改进](/rsi/) 讲的是「这层机器怎么自己优化自己」——从搜索 prompt 和工作流，到 agent 改写自己的 harness 代码，再到权重与 harness 联合演化。因为它同时涉及训练与工程，单独成章。
+
+训练侧本身是一条能力阶梯：先让模型**单步调用正确**（schema 遵循、参数抽取、该拒绝时拒绝），再用 RL 优化**多轮任务成功率**；到了任务规模超过单个上下文的探索容量时，才需要在系统层组织**多个 agent 协作**。[Skills](/skills/) 则与训练正交——把领域知识打包成可按需加载的文件，不动权重。
 
 ## 与 SFT / RL 版块的关系
 
@@ -60,13 +72,17 @@ Agent 训练没有发明新的优化算法，而是把既有算法用在新的�
 
 ## 子主题
 
-| 页面 | 回答的问题 |
-| --- | --- |
-| [Tool Use 训练](/agent/tool-use) | 怎么教模型正确发起函数调用：数据三条路线 + SFT 细节 |
-| [Agentic RL](/agent/agentic-rl/) | 多轮交互任务怎么用 RL 训练：掩码、奖励、课程 |
-| [多智能体](/agent/multi-agent) | 多个 agent 怎么分工协作：编排拓扑与 token 经济学 |
-| [Agent Skills](/skills/) | 怎么把领域知识打包成可复用、按需加载的技能 |
+| 页面 | 回答的问题 | 层 |
+| --- | --- | --- |
+| [Tool Use 训练](/agent/tool-use) | 怎么教模型正确发起函数调用：数据三条路线 + SFT 细节 | 训练 |
+| [Agentic RL](/agent/agentic-rl/) | 多轮交互任务怎么用 RL 训练：掩码、奖励、课程 | 训练 |
+| [Harness 工程](/harness/) | 模型不变，怎么靠工具、上下文、执行环境把能力放大 | 工程 |
+| [多智能体编排](/agent/multi-agent) | 多个 agent 怎么分工协作：编排拓扑与 token 经济学 | 工程 |
+| [Agent Skills](/skills/) | 怎么把领域知识打包成可复用、按需加载的技能 | 工程 |
+| [代表框架与系统](/agent/frameworks/) | LangChain 到 Claude Code，各家 agent 框架怎么设计 | 案例 |
+| [Deep Research](/agent/deep-research/) | 深度研究类 agent 的训练配方与系统设计 | 案例 |
+| [自主科研 Agent](/harness/auto-agents/) | AI Scientist 这类端到端自动化科研系统怎么搭 | 案例 |
 
 ## 建议阅读顺序
 
-按依赖关系：[Tool Use 训练](/agent/tool-use)（一切的基础）→ [Agentic RL](/agent/agentic-rl/)（需要 [GRPO](/rlhf/grpo) 背景）→ [多智能体](/agent/multi-agent)（系统层，几乎不涉及训练）。如果你关心的是"不训练怎么增强 agent"，直接看 [Skills](/skills/) 与 [Skills vs RAG vs 微调](/skills/vs-rag-finetune)。
+按依赖关系：[Tool Use 训练](/agent/tool-use)（一切的基础）→ [Agentic RL](/agent/agentic-rl/)（需要 [GRPO](/rlhf/grpo) 背景）→ [多智能体编排](/agent/multi-agent)（系统层，几乎不涉及训练）。如果你关心的是"不训练怎么增强 agent"，直接跳到工程侧：[Harness 工程](/harness/)、[Skills](/skills/) 与 [Skills vs RAG vs 微调](/skills/vs-rag-finetune)。想看完整的工业系统，从 [代表框架与系统](/agent/frameworks/) 和 [Deep Research](/agent/deep-research/) 入手。

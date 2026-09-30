@@ -101,6 +101,10 @@ flowchart TD
 
 切分顺序通常遵循「**通信越重，放得越近**」：TP 锁在机内，PP 跨机分段，DP/ZeRO 放最外层。后续三页分别下钻每个维度的具体机制与权衡。
 
+## 动手学
+
+Megatron / DeepSpeed 的封装层数很多，想读源码建议先看教学版：HuggingFace 的 picotron 把 4D 并行的每个模块都压到 300 行以内，配套理论读 Ultra-Scale Playbook。清单见 [动手学：各种 nano 项目](/guide/nano-projects)。
+
 ## 参考文献
 
 - Shoeybi et al. *Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism.* arXiv:1909.08053

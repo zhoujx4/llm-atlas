@@ -1,8 +1,8 @@
 ---
-title: Prompt Engineering（提示工程）
+title: Prompt Engineering
 ---
 
-# Prompt Engineering（提示工程）
+# Prompt Engineering
 
 > **一句话**：Prompt Engineering（提示工程）是这条演进链的**起点**——在**一次调用**里，靠措辞、示例、结构和"让模型先想再答"把任务讲清楚，从模型已有的能力里榨出最好的单轮输出。它关心的是**怎么问**；当问题不再是"怎么问"而是"模型根本没拿到该看的信息 / 一次答不完需要反复迭代"时，焦点就外溢到了 [上下文工程](/harness/context-engineering) 与 [循环工程](/harness/loop-engineering)。
 >

@@ -73,4 +73,5 @@ FlashAttention（Dao et al., 2022, arXiv:2205.14135）是**精确**算法而非�
 - **引擎选型**：在线服务直接从 vLLM / SGLang 这类 "continuous batching + paged KV" 引擎起步，PagedAttention 论文报告同等延迟下吞吐为 FasterTransformer/Orca 的 2–4 倍，官方基准比 HuggingFace Transformers 最高 24 倍。各引擎定位与取舍见 [推理框架与服务引擎](/inference/frameworks)。
 - **先看负载特征再选优化**：长 prompt + 短输出（RAG、文档问答）→ prefix caching 和 prefill 优化收益最大；短 prompt + 长输出（创作、推理链）→ decode 侧的投机解码与量化更关键。
 - **延迟与吞吐的取舍**：单请求延迟敏感（交互式应用）用[投机解码](/inference/speculative-decoding)；吞吐敏感（离线批处理）拉大 batch、配合 KV cache [量化](/inference/quantization)。
+- **想读引擎源码**：先看 nano-vllm（约 1200 行复刻 vLLM 核心）与 tiny-llm 课程，再回头读 vLLM/SGLang，见 [动手学：各种 nano 项目](/guide/nano-projects)。
 - **显存预算**：部署前估算 权重 + KV cache + 激活 三部分，其中 KV cache 是唯一随负载动态增长的项，估算方法见 [KV Cache](/inference/kv-cache)。

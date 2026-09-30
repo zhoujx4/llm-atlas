@@ -1,8 +1,8 @@
 ---
-title: Tool Use / Function Calling 训练
+title: Tool Use 训练
 ---
 
-# Tool Use / Function Calling 训练
+# Tool Use 训练
 
 > **一句话**：教模型在合适的时机、以正确的 schema 发起工具调用并消化返回结果；数据来源经历了自监督标注（*Toolformer*, 2023）→ 真实 API 大规模标注（*ToolLLM*, 2023）→ 执行验证合成（*APIGen*, 2024）三代演进。
 >

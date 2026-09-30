@@ -2,6 +2,8 @@
 title: 推理时的搜索与验证
 ---
 
+# 推理时的搜索与验证
+
 > **一句话**：当问题需要试探、回溯与全局取舍时，把单链 CoT 升级为「生成候选 → 评估打分 → 选择/回溯」的搜索循环，往往比一条路走到黑更划算。
 > 关键年份：Self-Consistency（2022, arXiv:2203.11171）、Tree of Thoughts（2023, arXiv:2305.10601）、Graph of Thoughts（2023, arXiv:2308.09687）、rStar（2024, arXiv:2408.06195）。
 > 前置阅读：[测试时扩展](/reasoning/test-time-scaling)、[推理中的奖励模型](/reasoning/reward-models)、[推理总览](/reasoning/)

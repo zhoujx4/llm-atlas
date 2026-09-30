@@ -2,6 +2,8 @@
 title: 过程奖励 vs 结果奖励（PRM / ORM）
 ---
 
+# 过程奖励 vs 结果奖励（PRM / ORM）
+
 > **一句话**：ORM 只看最终答案对不对、PRM 给推理的每一步打分；当任务可程序化验证时直接用规则奖励，只有开放式任务才真正需要训一个奖励模型。
 > 关键年份：Let's Verify Step by Step（Lightman et al. 2023, arXiv:2305.20050）；Math-Shepherd（Wang et al. 2023, arXiv:2312.08935）。
 > 前置阅读：[奖励模型](/rlhf/reward-model)、[RLVR](/reasoning/rlvr)、[推理时搜索](/reasoning/search)

@@ -25,12 +25,12 @@ flowchart TB
     end
     DISTILL --> INFER[推理与解码<br/>KV Cache / 量化 / 投机]
     ALIGNED --> INFER
-    INFER --> HARNESS[Harness<br/>Agent Loop / 沙箱]
-    HARNESS --> AGENT[Agent<br/>工具调用 / Agentic RL]
-    AGENT --> SKILLS[Skills<br/>能力封装与组织]
+    INFER --> AGTRAIN[Agent 训练<br/>Tool Use / Agentic RL]
+    AGTRAIN --> AGENG[Harness 工程 + Skills<br/>执行循环 / 上下文 / 能力封装]
+    AGENG -.自我改进.-> RSI[RSI 递归自我改进]
 ```
 
-这条主干并非严格的线性流程。SFT、DPO、PPO/GRPO、蒸馏、LoRA 同属「后训练」，[后训练总览](/post-training/) 把它们放在同一张图上对比。LoRA 是一类参数高效微调技术，可以叠加在 SFT、DPO、RLHF 任意阶段之上；蒸馏既可以发生在对齐之前（用大模型造数据），也可以发生在对齐之后（压缩已对齐模型）；Harness / Agent / Skills 三章则关注"模型训好之后如何被组织成能干活的系统"。
+这条主干并非严格的线性流程。SFT、DPO、PPO/GRPO、蒸馏、LoRA 同属「后训练」，[后训练总览](/post-training/) 把它们放在同一张图上对比。LoRA 是一类参数高效微调技术，可以叠加在 SFT、DPO、RLHF 任意阶段之上；蒸馏既可以发生在对齐之前（用大模型造数据），也可以发生在对齐之后（压缩已对齐模型）；[Agent](/agent/) 一章则关注"模型训好之后如何被组织成能干活的系统"，内部按训练（Tool Use / Agentic RL）、工程（Harness / Skills）、案例（框架 / Deep Research / 自主科研）三层组织；[RSI](/rsi/) 讲这层机器怎么自己优化自己，跨在两侧之上，单独成章。
 
 ## 三条阅读路线
 
@@ -67,9 +67,11 @@ flowchart TB
 | [黑盒蒸馏](/distillation/) | 怎么用教师生成的数据把能力转移到小模型 |
 | [OPD 在线蒸馏](/opd/) | 怎么让教师在学生自己的采样上逐 token 打分，用 RL 的形态做蒸馏 |
 | [推理与解码](/inference/) | 怎么让训好的模型推得更快、更省显存 |
-| [Harness](/harness/) | 怎么搭出让模型循环思考、执行、观测的执行框架 |
-| [Agent](/agent/) | 怎么训练和组织会用工具、能自主决策的模型 |
+| [Agent](/agent/) | 怎么训练和组织会用工具、能自主决策的模型（训练 / 工程 / 案例三层） |
+| [Harness 工程](/harness/) | 权重不动时，怎么靠工具、上下文、执行环境把能力放大 |
 | [Skills](/skills/) | 怎么把可复用能力封装成模型可调用的"技能" |
+| [RSI](/rsi/) | 这层机器怎么自己优化自己：从搜索 prompt 到联合演化 |
+| [动手学：各种 nano 项目](/guide/nano-projects) | 每层技术栈对应的教学版最小实现，读哪个仓库最省事 |
 
 ## 关于符号
 

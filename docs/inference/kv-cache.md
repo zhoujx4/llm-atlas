@@ -2,7 +2,7 @@
 title: KV Cache
 ---
 
-# KV Cache（键值缓存）
+# KV Cache
 
 > **一句话**：KV cache 用显存换计算——缓存历史 token 的 Key/Value，使每步 decode 免于重算整个前缀；但它随 batch × 序列长度线性膨胀，成为推理吞吐的头号瓶颈，由此催生架构压缩（GQA/MLA）、分页管理（PagedAttention）、跨请求复用（prefix caching）三条优化路线。
 >

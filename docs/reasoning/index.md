@@ -1,8 +1,8 @@
 ---
-title: 推理模型（Reasoning）总览
+title: 推理模型总览
 ---
 
-# 推理模型（Reasoning）总览
+# 推理模型总览
 
 > **一句话**：推理模型先「想」再「答」——用长思维链（long CoT）配合推理时多花算力（test-time compute）换取更高的正确率，再用 RLVR 把这种「会推理」的行为固化到权重里。
 > 关键年份：CoT（2201.11903，2022）→ ToT（2305.10601）/ Let's Verify（2305.20050，2023）→ o1（OpenAI，2024-09）/ Scaling Test-Time Compute（2408.03314）→ DeepSeek-R1（2501.12948，2025）/ Kimi k1.5（2501.12599）/ s1（2501.19393）。

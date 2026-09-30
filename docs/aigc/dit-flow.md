@@ -2,6 +2,8 @@
 title: 架构演进：U-Net → DiT 与 Flow Matching / Rectified Flow
 ---
 
+# 架构演进：U-Net → DiT 与 Flow Matching / Rectified Flow
+
 > **一句话**：扩散模型的演进沿两条线展开——去噪骨干从卷积 **U-Net** 走向纯 Transformer 的 **DiT**（scaling 更好），训练范式从 DDPM 的噪声预测走向 **flow matching / rectified flow** 的直线 ODE 路径（采样更省步），二者在 SD3 的 **MMDiT** 和 Flux 上汇合。
 > 关键年份：Rectified Flow（Liu et al. 2022, arXiv:2209.03003）、Flow Matching（Lipman et al. 2022, arXiv:2210.02747）、DiT（Peebles & Xie 2022/2023, arXiv:2212.09748, ICCV 2023）、SD3 / MMDiT（Esser et al. 2024, arXiv:2403.03206）。
 > 前置阅读：[Latent Diffusion 与 Stable Diffusion](/aigc/latent-diffusion)、[扩散模型基础](/aigc/diffusion-basics)、[Transformer](/architecture/transformer)

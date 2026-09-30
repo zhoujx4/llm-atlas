@@ -9,7 +9,7 @@
 ## 知识体系
 
 ```
-导读          如何阅读 · 符号约定
+导读          如何阅读 · 符号约定 · 动手学：各种 nano 项目
 基础模型       Qwen · DeepSeek · GLM · Llama · Kimi · MiniMax · StepFun · Gemini · Claude · OpenAI
 后训练         总览：两个维度（训练目标 × 参数更新方式）· 统一梯度视角 · 典型流水线 · 选型
               ├ SFT：全量微调 · 数据构造 · Chat Template · Packing · Loss Masking
@@ -17,15 +17,16 @@
               ├ DPO 系列：DPO · IPO · KTO · ORPO · SimPO · CPO
               ├ PPO/GRPO 系列：Reward Model · PPO · GRPO · 训练循环 · DAPO · GSPO · RLOO · REINFORCE++
               ├ 黑盒蒸馏系列：黑盒（数据/CoT） · 推理蒸馏
-              └ OPD 系列（在线蒸馏）：总览 · 白盒蒸馏（MiniLLM/GKD/DistiLLM）
+              └ OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）：总览（大厂实践 · 概念 · 白盒 · 黑盒 · 自蒸馏 · 圆桌争议） · 白盒蒸馏（MiniLLM/GKD/DistiLLM）
 推理与解码     KV Cache & PagedAttention · 量化（GPTQ/AWQ/FP8） · 投机解码
-Harness       执行循环与上下文 · 沙箱与工具执行 · 代表系统对比
-              └ 自主科研与自动化 Agent：AI Scientist · Agent Laboratory · AIDE · AI co-scientist
-Agent         Tool Use 训练 · 多智能体
-              ├ Agentic RL：检索/工具 RL · 软件工程 RL · Web 导航 RL · 训练稳定性
-              ├ 代表性 Agent 框架：LangChain · LangGraph · LlamaIndex · AutoGen · CrewAI · MetaGPT · Claude Agent SDK · Claude Code · Codex · OpenClaw · Hermes
-              └ Deep Research：OpenAI Deep Research · open-deep-research(HF) · STORM/Co-STORM
-Skills        Agent Skills 体系 · 技能设计与评测 · AutoSkill 技能自迭代 · 与 RAG/微调对比
+Agent          总览：训练 / 工程 / 案例三层
+              ├ Agent 训练：Tool Use 训练 · Agentic RL（检索/工具 · 软件工程 · Web 导航 · 训练稳定性）
+              ├ Harness 工程：执行循环与上下文 · Prompt/Context/Loop/Harness Engineering · 沙箱 · 多智能体编排
+              ├ Skills：Agent Skills 体系 · 技能设计与评测 · AutoSkill 技能自迭代 · 与 RAG/微调对比
+              ├ 代表框架与系统：代表系统对比 · LangChain · LangGraph · LlamaIndex · AutoGen · CrewAI · MetaGPT · Claude Agent SDK · Claude Code · Codex · OpenClaw · Hermes
+              ├ Deep Research：OpenAI Deep Research · Tongyi · DR Tulu · MiroThinker · Step · QUEST · Apodex · STORM/Co-STORM 等
+              └ 自主科研 Agent：AI Scientist · Agent Laboratory · AIDE · AI co-scientist
+RSI            Harness 自我改进：上下文工程 → 演化搜索 → 权重与 harness 联合演化
 ```
 
 开源模型以技术报告 / 论文为准，闭源模型以官方博客 / 模型卡为准。
@@ -43,7 +44,7 @@ push 到 `main` 分支后，GitHub Actions 会自动构建并部署到 GitHub Pa
 
 ## 内容组织约定
 
-- **目录 = URL = 侧边栏分组**：每个算法版块一个顶层目录（如 `docs/dpo/`），版块内每个算法一个 `.md` 文件，版块必有 `index.md` 总览页（含家族演化 Mermaid 图与变体对比表）。例外：「后训练」是侧边栏上的上层分组（总览页在 `docs/post-training/`），下属 `sft/`、`lora/`、`dpo/`、`rlhf/`、`distillation/`、`opd/` 仍保持顶层目录（白盒蒸馏页留在 `distillation/white-box`，侧边栏归入 OPD 系列），以免已发布的链接失效。
+- **目录 = URL = 侧边栏分组**：每个算法版块一个顶层目录（如 `docs/dpo/`），版块内每个算法一个 `.md` 文件，版块必有 `index.md` 总览页（含家族演化 Mermaid 图与变体对比表）。例外：「后训练」是侧边栏上的上层分组（总览页在 `docs/post-training/`），下属 `sft/`、`lora/`、`dpo/`、`rlhf/`、`distillation/`、`opd/` 仍保持顶层目录（白盒蒸馏页留在 `distillation/white-box`，侧边栏归入 OPD 分组），以免已发布的链接失效。
 - **文件命名**：小写连字符，即 URL 路径（`reinforce-plus-plus.md` → `/rlhf/reinforce-plus-plus`）。
 - **站内链接**：写不含 base 的绝对路径（如 `/dpo/dpo`），**不要**手写 `/llm-atlas/` 前缀。
 - **数学公式**：`$...$` 行内、`$$...$$` 块级，记号遵循 [符号约定](docs/guide/notation.md)。

@@ -19,7 +19,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'DPO 系列', link: '/dpo/' },
               { text: 'PPO / GRPO 系列', link: '/rlhf/' },
               { text: '黑盒蒸馏系列', link: '/distillation/' },
-              { text: 'OPD 系列（在线蒸馏）', link: '/opd/' }
+              { text: 'OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）', link: '/opd/' }
             ]
           },
           {
@@ -32,19 +32,23 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
       {
         text: '推理与评测',
         items: [
-          { text: '推理与解码', link: '/inference/' },
-          { text: '评测 Evaluation', link: '/eval/' }
+          { text: '推理优化与解码', link: '/inference/' },
+          { text: '评测', link: '/eval/' }
         ]
       },
       {
         text: 'Agent',
         items: [
-          { text: 'Harness', link: '/harness/' },
-          { text: 'RSI 递归自我改进', link: '/rsi/' },
-          { text: 'Agent', link: '/agent/' },
-          { text: 'Skills', link: '/skills/' }
+          { text: 'Agent 总览', link: '/agent/' },
+          { text: 'Tool Use 训练', link: '/agent/tool-use' },
+          { text: 'Agentic RL', link: '/agent/agentic-rl/' },
+          { text: 'Harness 工程', link: '/harness/' },
+          { text: 'Skills', link: '/skills/' },
+          { text: '代表框架与系统', link: '/agent/frameworks/' },
+          { text: 'Deep Research', link: '/agent/deep-research/' }
         ]
       },
+      { text: 'RSI', link: '/rsi/' },
       { text: 'AIGC', link: '/aigc/' },
       { text: '导读', link: '/guide/' },
       { text: '关于', link: '/about' }
@@ -60,7 +64,8 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: '信息论基础', link: '/guide/info-theory' },
           { text: 'GPU 基础', link: '/guide/gpu' },
           { text: 'A/B 实验与统计', link: '/guide/ab-testing' },
-          { text: '前沿博客与资源', link: '/guide/blogs' }
+          { text: '前沿博客与资源', link: '/guide/blogs' },
+          { text: '动手学：各种 nano 项目', link: '/guide/nano-projects' }
         ]
       },
       {
@@ -165,7 +170,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
             ]
           },
           {
-            text: 'OPD 系列（在线蒸馏）',
+            text: 'OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）',
             collapsed: true,
             items: [
               { text: '总览', link: '/opd/' },
@@ -185,7 +190,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: '推理模型（Reasoning）',
+        text: '推理模型',
         collapsed: true,
         items: [
           { text: '总览', link: '/reasoning/' },
@@ -196,7 +201,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: '推理与解码',
+        text: '推理优化与解码',
         collapsed: true,
         items: [
           { text: '总览', link: '/inference/' },
@@ -207,7 +212,7 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: '评测 Evaluation',
+        text: '评测',
         collapsed: true,
         items: [
           { text: '总览', link: '/eval/' },
@@ -218,48 +223,16 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: 'Harness',
-        collapsed: true,
-        items: [
-          { text: '总览', link: '/harness/' },
-          { text: '执行循环与上下文管理', link: '/harness/agent-loop' },
-          { text: 'Prompt Engineering（提示工程）', link: '/harness/prompt-engineering' },
-          { text: 'Context Engineering（上下文工程）', link: '/harness/context-engineering' },
-          { text: 'Loop Engineering（循环工程）', link: '/harness/loop-engineering' },
-          { text: 'Harness Engineering（机器工程）', link: '/harness/harness-engineering' },
-          { text: '沙箱与工具执行', link: '/harness/sandbox' },
-          { text: '代表系统对比', link: '/harness/systems' },
-          {
-            text: '自主科研与自动化 Agent',
-            collapsed: true,
-            items: [
-              { text: '总览', link: '/harness/auto-agents/' },
-              { text: 'AI Scientist', link: '/harness/auto-agents/ai-scientist' },
-              { text: 'Agent Laboratory', link: '/harness/auto-agents/agent-laboratory' },
-              { text: 'AIDE（ML 工程 Agent）', link: '/harness/auto-agents/aide' },
-              { text: 'AI co-scientist', link: '/harness/auto-agents/ai-co-scientist' }
-            ]
-          }
-        ]
-      },
-      {
-        text: 'RSI 递归自我改进',
-        collapsed: true,
-        items: [
-          { text: 'Harness 自我改进', link: '/rsi/' }
-        ]
-      },
-      {
         text: 'Agent',
         collapsed: true,
         items: [
-          { text: '总览', link: '/agent/' },
-          { text: 'Tool Use 训练', link: '/agent/tool-use' },
+          { text: '总览：训练 / 工程 / 案例三层', link: '/agent/' },
           {
-            text: 'Agentic RL',
+            text: 'Agent 训练',
             collapsed: true,
             items: [
-              { text: '总览', link: '/agent/agentic-rl/' },
+              { text: 'Tool Use 训练', link: '/agent/tool-use' },
+              { text: 'Agentic RL 总览', link: '/agent/agentic-rl/' },
               { text: '检索与工具 RL（Search-R1 系）', link: '/agent/agentic-rl/search-rl' },
               { text: '软件工程 RL（SWE-RL）', link: '/agent/agentic-rl/swe-rl' },
               { text: 'Web 长程导航 RL', link: '/agent/agentic-rl/web-agent-rl' },
@@ -267,10 +240,40 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
             ]
           },
           {
-            text: '代表性 Agent 框架',
+            text: 'Harness 工程',
+            collapsed: true,
+            items: [
+              { text: '总览', link: '/harness/' },
+              { text: '执行循环与上下文管理', link: '/harness/agent-loop' },
+              { text: 'Prompt Engineering（提示工程）', link: '/harness/prompt-engineering' },
+              { text: 'Context Engineering（上下文工程）', link: '/harness/context-engineering' },
+              { text: 'Loop Engineering（循环工程）', link: '/harness/loop-engineering' },
+              { text: 'Harness Engineering（机器工程）', link: '/harness/harness-engineering' },
+              { text: '沙箱与工具执行', link: '/harness/sandbox' },
+              { text: '多智能体编排', link: '/agent/multi-agent' }
+            ]
+          },
+          {
+            text: 'Skills',
+            collapsed: true,
+            items: [
+              { text: 'Agent Skills 体系', link: '/skills/' },
+              { text: '技能设计与评测', link: '/skills/design' },
+              { text: 'AutoSkill 总览：技能自迭代', link: '/skills/autoskill/' },
+              { text: 'Trace2Skill（轨迹蒸馏技能）', link: '/skills/autoskill/trace2skill' },
+              { text: 'SkillOS（技能策展 RL）', link: '/skills/autoskill/skillos' },
+              { text: 'SkillOpt（技能即权重优化）', link: '/skills/autoskill/skillopt' },
+              { text: 'SkillOps（技能库工程化运维）', link: '/skills/autoskill/skillops' },
+              { text: 'OpenSkill（开放世界自演化）', link: '/skills/autoskill/openskill' },
+              { text: 'Skills vs RAG vs 微调', link: '/skills/vs-rag-finetune' }
+            ]
+          },
+          {
+            text: '代表框架与系统',
             collapsed: true,
             items: [
               { text: '总览与对比', link: '/agent/frameworks/' },
+              { text: '代表系统对比（Harness 视角）', link: '/harness/systems' },
               { text: 'LangChain', link: '/agent/frameworks/langchain' },
               { text: 'LangGraph', link: '/agent/frameworks/langgraph' },
               { text: 'LlamaIndex', link: '/agent/frameworks/llamaindex' },
@@ -307,32 +310,28 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'STORM / Co-STORM', link: '/agent/deep-research/storm' }
             ]
           },
-          { text: '多智能体', link: '/agent/multi-agent' }
-        ]
-      },
-      {
-        text: 'Skills',
-        collapsed: true,
-        items: [
-          { text: 'Agent Skills 体系', link: '/skills/' },
-          { text: '技能设计与评测', link: '/skills/design' },
           {
-            text: 'AutoSkill：技能自迭代',
+            text: '自主科研与自动化 Agent',
             collapsed: true,
             items: [
-              { text: '总览', link: '/skills/autoskill/' },
-              { text: 'Trace2Skill（轨迹蒸馏技能）', link: '/skills/autoskill/trace2skill' },
-              { text: 'SkillOS（技能策展 RL）', link: '/skills/autoskill/skillos' },
-              { text: 'SkillOpt（技能即权重优化）', link: '/skills/autoskill/skillopt' },
-              { text: 'SkillOps（技能库工程化运维）', link: '/skills/autoskill/skillops' },
-              { text: 'OpenSkill（开放世界自演化）', link: '/skills/autoskill/openskill' }
+              { text: '总览', link: '/harness/auto-agents/' },
+              { text: 'AI Scientist', link: '/harness/auto-agents/ai-scientist' },
+              { text: 'Agent Laboratory', link: '/harness/auto-agents/agent-laboratory' },
+              { text: 'AIDE（ML 工程 Agent）', link: '/harness/auto-agents/aide' },
+              { text: 'AI co-scientist', link: '/harness/auto-agents/ai-co-scientist' }
             ]
-          },
-          { text: 'Skills vs RAG vs 微调', link: '/skills/vs-rag-finetune' }
+          }
         ]
       },
       {
-        text: '生成式模型 / AIGC',
+        text: 'RSI 递归自我改进',
+        collapsed: true,
+        items: [
+          { text: 'Harness 自我改进', link: '/rsi/' }
+        ]
+      },
+      {
+        text: 'AIGC 生成式模型',
         collapsed: true,
         items: [
           { text: '总览', link: '/aigc/' },

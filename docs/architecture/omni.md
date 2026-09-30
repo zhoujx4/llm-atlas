@@ -2,6 +2,8 @@
 title: Omni 全模态架构
 ---
 
+# Omni 全模态架构
+
 > **一句话**：Omni 模型在 VLM「图像 + 文本」的基础上把**音频/语音、视频、实时流**也纳入同一个网络，目标是用一个模型完成 any-to-any 的理解与生成，并支撑低延迟的语音交互。
 > 关键年份：AnyGPT 2024 (arXiv:2402.12226)，GPT-4o 2024（OpenAI，定性），MiniCPM-o 2.6 2025，Qwen2.5-Omni 2025 (arXiv:2503.20215)，Step-Audio-AQAA 2025 (arXiv:2506.08967)。
 > 前置阅读：[VLM 多模态结构](/architecture/vlm)、[注意力变体](/architecture/attention)、[位置编码与归一化](/architecture/positional-norm)

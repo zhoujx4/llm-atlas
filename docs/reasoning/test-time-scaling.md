@@ -2,6 +2,8 @@
 title: 测试时计算扩展与长思维链
 ---
 
+# 测试时计算扩展与长思维链
+
 > **一句话**：与其只把模型练得更大，不如在推理那一刻让它"想得更多"——通过显式思维链、多采样投票、验证器筛选乃至强制延长思考，把额外的算力转化为更高的准确率。
 > 关键年份：CoT (Wei et al. 2022, arXiv:2201.11903)；Self-Consistency (Wang et al. 2022, arXiv:2203.11171)；Scaling Test-Time Compute (Snell et al. 2024, arXiv:2408.03314)；s1 budget forcing (2025, arXiv:2501.19393)。
 > 前置阅读：[推理总览](/reasoning/)、[推理时搜索](/reasoning/search)、[推理与部署](/inference/)

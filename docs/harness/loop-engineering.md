@@ -1,8 +1,8 @@
 ---
-title: Loop Engineering（循环工程）
+title: Loop Engineering
 ---
 
-# Loop Engineering（循环工程）
+# Loop Engineering
 
 > **一句话**：Loop Engineering（循环工程）是 2026 年 6 月突然爆火的提法——**不要再亲手 prompt 你的 coding agent，而是去设计那个"替你不断 prompt 它"的循环**：定义什么是完成、给什么工具、上下文怎么管、卡住了怎么退出与升级、报错算反馈还是算致命。它把焦点从"写好一句话"抬到"设计好一台自纠错的状态机"，是 **prompt engineering → context engineering → loop engineering → harness engineering** 这条演进链上最新的一环。
 >

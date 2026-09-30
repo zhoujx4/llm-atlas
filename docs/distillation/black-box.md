@@ -1,8 +1,8 @@
 ---
-title: 黑盒蒸馏（数据蒸馏）
+title: 黑盒蒸馏
 ---
 
-# 黑盒蒸馏（Black-Box / Data Distillation）
+# 黑盒蒸馏
 
 > **一句话**：拿不到教师 logits 时，让教师生成完整输出序列、学生在这些序列上做 SFT——理论原型是序列级知识蒸馏（*Sequence-Level Knowledge Distillation*, 2016），LLM 时代的三代代表是 Self-Instruct（2022）、Alpaca（2023）与 DeepSeek-R1-Distill（2025）。
 >

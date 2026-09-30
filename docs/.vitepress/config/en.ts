@@ -15,16 +15,19 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'DPO Family', link: '/en/dpo/' },
           { text: 'PPO / GRPO Family', link: '/en/rlhf/' },
           { text: 'Black-Box Distillation', link: '/en/distillation/' },
-          { text: 'OPD (On-Policy Distillation)', link: '/en/opd/' }
+          { text: 'OPD (White-box / Black-box / Self-distillation)', link: '/en/opd/' }
         ]
       },
       { text: 'Inference', link: '/en/inference/' },
       {
         text: 'Agent',
         items: [
-          { text: 'Harness', link: '/en/harness/' },
-          { text: 'Agent', link: '/en/agent/' },
-          { text: 'Skills', link: '/en/skills/' }
+          { text: 'Agent Overview', link: '/en/agent/' },
+          { text: 'Tool Use Training', link: '/en/agent/tool-use' },
+          { text: 'Agentic RL', link: '/en/agent/agentic-rl' },
+          { text: 'Harness Engineering', link: '/en/harness/' },
+          { text: 'Skills', link: '/en/skills/' },
+          { text: 'Deep Research', link: '/en/agent/deep-research/' }
         ]
       },
       { text: 'Guide', link: '/en/guide/' },
@@ -40,7 +43,8 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'Notation', link: '/en/guide/notation' },
           { text: 'Information Theory Basics', link: '/en/guide/info-theory' },
           { text: 'GPU Basics', link: '/en/guide/gpu' },
-          { text: 'A/B Testing & Statistics', link: '/en/guide/ab-testing' }
+          { text: 'A/B Testing & Statistics', link: '/en/guide/ab-testing' },
+          { text: 'Learn by Building: nano Projects', link: '/en/guide/nano-projects' }
         ]
       },
       {
@@ -128,7 +132,7 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
             ]
           },
           {
-            text: 'OPD (On-Policy Distillation)',
+            text: 'OPD (White-box / Black-box / Self-distillation)',
             collapsed: true,
             items: [
               { text: 'Overview', link: '/en/opd/' },
@@ -148,22 +152,44 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
         ]
       },
       {
-        text: 'Harness',
-        collapsed: true,
-        items: [
-          { text: 'Overview', link: '/en/harness/' },
-          { text: 'Agent Loop & Context', link: '/en/harness/agent-loop' },
-          { text: 'Sandbox & Tool Execution', link: '/en/harness/sandbox' },
-          { text: 'Systems Compared', link: '/en/harness/systems' }
-        ]
-      },
-      {
         text: 'Agent',
         collapsed: true,
         items: [
-          { text: 'Overview', link: '/en/agent/' },
-          { text: 'Tool Use Training', link: '/en/agent/tool-use' },
-          { text: 'Agentic RL', link: '/en/agent/agentic-rl' },
+          { text: 'Overview: Training / Engineering / Systems', link: '/en/agent/' },
+          {
+            text: 'Agent Training',
+            collapsed: true,
+            items: [
+              { text: 'Tool Use Training', link: '/en/agent/tool-use' },
+              { text: 'Agentic RL', link: '/en/agent/agentic-rl' }
+            ]
+          },
+          {
+            text: 'Harness Engineering',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/en/harness/' },
+              { text: 'Agent Loop & Context', link: '/en/harness/agent-loop' },
+              { text: 'Sandbox & Tool Execution', link: '/en/harness/sandbox' },
+              { text: 'Multi-Agent Orchestration', link: '/en/agent/multi-agent' }
+            ]
+          },
+          {
+            text: 'Skills',
+            collapsed: true,
+            items: [
+              { text: 'Agent Skills', link: '/en/skills/' },
+              { text: 'Skill Design & Evaluation', link: '/en/skills/design' },
+              { text: 'Skills vs RAG vs Fine-Tuning', link: '/en/skills/vs-rag-finetune' }
+            ]
+          },
+          {
+            text: 'Frameworks & Systems',
+            collapsed: true,
+            items: [
+              { text: 'Systems Compared', link: '/en/harness/systems' }
+            ]
+          },
           {
             text: 'Deep Research',
             collapsed: true,
@@ -173,17 +199,7 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'AgentDisCo', link: '/en/agent/deep-research/agentdisco' },
               { text: 'DR-Rubric', link: '/en/agent/deep-research/dr-rubric' }
             ]
-          },
-          { text: 'Multi-Agent', link: '/en/agent/multi-agent' }
-        ]
-      },
-      {
-        text: 'Skills',
-        collapsed: true,
-        items: [
-          { text: 'Agent Skills', link: '/en/skills/' },
-          { text: 'Skill Design & Evaluation', link: '/en/skills/design' },
-          { text: 'Skills vs RAG vs Fine-Tuning', link: '/en/skills/vs-rag-finetune' }
+          }
         ]
       }
     ],

@@ -1,8 +1,8 @@
 ---
-title: Context Engineering（上下文工程）
+title: Context Engineering
 ---
 
-# Context Engineering（上下文工程）
+# Context Engineering
 
 > **一句话**：Context Engineering（上下文工程）是这条链的**第②环**——焦点从"怎么把一句话写好"抬到"**在有限的 context window 里，每一步该放进哪些信息**"：系统提示、检索到的资料、工具结果、历史、记忆，全都要**选对、压好、隔离干净**。它的核心信念是：**一句再完美的 prompt 也补不上模型从未拿到的事实**，所以工程对象从"措辞"变成了"喂给模型的整个上下文"。
 >

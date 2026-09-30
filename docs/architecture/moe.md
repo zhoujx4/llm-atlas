@@ -2,6 +2,8 @@
 title: MoE 混合专家
 ---
 
+# MoE 混合专家
+
 > **一句话**：MoE（Mixture-of-Experts）用稀疏门控把 FFN 拆成多个专家，每个 token 只激活其中少数几个，从而在参数量大幅增长的同时把单 token 计算量控制在接近 dense 小模型的水平。
 > 关键年份：Sparsely-Gated MoE 2017（arXiv:1701.06538）、GShard 2020（arXiv:2006.16668）、Switch Transformer 2021（arXiv:2101.03961）、Mixtral 与 DeepSeekMoE 2024（arXiv:2401.04088 / arXiv:2401.06066）、DeepSeek-V3 aux-loss-free 2024（arXiv:2412.19437）。
 > 前置阅读：[Transformer 基础架构](/architecture/transformer)、[注意力变体](/architecture/attention)、[KV Cache](/inference/kv-cache)

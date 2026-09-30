@@ -1,26 +1,28 @@
 ---
-title: On-Policy Distillation (OPD) Overview
+title: OPD (White-box / Black-box / Self-distillation)
 translation: pending
 ---
 
-# On-Policy Distillation (OPD) Overview
+# OPD (White-box / Black-box / Self-distillation)
 
 ::: warning Translation pending
 This page has not been translated yet. Please read the [Chinese version](/opd/).
 :::
 
-## Why On-Policy
+## Preface
 
-## Method: Per-Token Reverse KL as a Dense Reward
+## 01. OPD in Industry
 
-## Where OPD Sits Among SFT, Distillation, and RL
+## 02. What Is OPD
 
-## Timeline
+## 03. White-box Distillation: Teacher Logits Available
 
-## Industrial Recipes
+## 04. Black-box Distillation: Only Teacher Responses Available
 
-## When OPD Works and When It Fails
+## 05. Self-distillation: The Teacher Is Yourself with the Answer
 
-## Implementation Notes
+## 06. Three Open Questions from the Roundtable
+
+## Closing
 
 ## References

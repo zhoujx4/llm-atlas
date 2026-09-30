@@ -2,6 +2,8 @@
 title: 显存与吞吐优化
 ---
 
+# 显存与吞吐优化
+
 > **一句话**：在不改动模型质量的前提下，用「精度换字节、算力换显存、并行换等待」三类手段，把更大的模型/批量塞进有限的显存并榨干算力。
 > 关键年份：Mixed Precision Training（Micikevicius et al. 2017，arXiv:1710.03740）；Sublinear Memory / 梯度检查点（Chen et al. 2016，arXiv:1604.06174）；FlashAttention（Dao et al. 2022，arXiv:2205.14135）；8-bit Optimizers（Dettmers et al. 2021，arXiv:2110.02861）。
 > 前置阅读：[Transformer 架构](/architecture/transformer)、[训练系统总览](/training-systems/)、[推理优化](/inference/)
