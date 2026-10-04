@@ -14,7 +14,6 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
           { text: 'LoRA Family', link: '/en/lora/' },
           { text: 'DPO Family', link: '/en/dpo/' },
           { text: 'PPO / GRPO Family', link: '/en/rlhf/' },
-          { text: 'Black-Box Distillation', link: '/en/distillation/' },
           { text: 'OPD (White-box / Black-box / Self-distillation)', link: '/en/opd/' }
         ]
       },
@@ -124,19 +123,13 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
             ]
           },
           {
-            text: 'Black-Box Distillation',
-            collapsed: true,
-            items: [
-              { text: 'Overview', link: '/en/distillation/' },
-              { text: 'Black-Box (Data/CoT)', link: '/en/distillation/black-box' }
-            ]
-          },
-          {
             text: 'OPD (White-box / Black-box / Self-distillation)',
             collapsed: true,
             items: [
-              { text: 'Overview', link: '/en/opd/' },
-              { text: 'White-Box (Logits KL)', link: '/en/distillation/white-box' }
+              { text: 'OPD Overview', link: '/en/opd/' },
+              { text: 'Distillation Overview', link: '/en/distillation/' },
+              { text: 'White-Box (Logits KL)', link: '/en/distillation/white-box' },
+              { text: 'Black-Box (Data/CoT)', link: '/en/distillation/black-box' }
             ]
           }
         ]

@@ -16,8 +16,8 @@
               ├ LoRA 系列：LoRA · QLoRA · DoRA · AdaLoRA · rsLoRA · LoRA+ · PiSSA
               ├ DPO 系列：DPO · IPO · KTO · ORPO · SimPO · CPO
               ├ PPO/GRPO 系列：Reward Model · PPO · GRPO · 训练循环 · DAPO · GSPO · RLOO · REINFORCE++
-              ├ 黑盒蒸馏系列：黑盒（数据/CoT） · 推理蒸馏
-              └ OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）：总览（大厂实践 · 概念 · 白盒 · 黑盒 · 自蒸馏 · 圆桌争议） · 白盒蒸馏（MiniLLM/GKD/DistiLLM）
+              └ OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）：OPD 总览（大厂实践 · 概念 · 白盒 · 黑盒 · 自蒸馏 · 圆桌争议）
+                 · 知识蒸馏总览 · 白盒蒸馏（MiniLLM/GKD/DistiLLM） · 黑盒蒸馏（数据/CoT） · 推理蒸馏
 推理与解码     KV Cache & PagedAttention · 量化（GPTQ/AWQ/FP8） · 投机解码
 Agent          总览：训练 / 工程 / 案例三层
               ├ Agent 训练：Tool Use 训练 · Agentic RL（检索/工具 · 软件工程 · Web 导航 · 训练稳定性）

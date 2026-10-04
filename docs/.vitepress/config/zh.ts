@@ -18,7 +18,6 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
               { text: 'LoRA 系列', link: '/lora/' },
               { text: 'DPO 系列', link: '/dpo/' },
               { text: 'PPO / GRPO 系列', link: '/rlhf/' },
-              { text: '黑盒蒸馏系列', link: '/distillation/' },
               { text: 'OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）', link: '/opd/' }
             ]
           },
@@ -161,20 +160,14 @@ export const zh: LocaleSpecificConfig<DefaultTheme.Config> = {
             ]
           },
           {
-            text: '黑盒蒸馏系列',
-            collapsed: true,
-            items: [
-              { text: '总览', link: '/distillation/' },
-              { text: '黑盒蒸馏（数据/CoT）', link: '/distillation/black-box' },
-              { text: '推理蒸馏（R1-Distill/s1/LIMO）', link: '/distillation/reasoning' }
-            ]
-          },
-          {
             text: 'OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）',
             collapsed: true,
             items: [
-              { text: '总览', link: '/opd/' },
-              { text: '白盒蒸馏（MiniLLM/GKD/DistiLLM）', link: '/distillation/white-box' }
+              { text: 'OPD 总览', link: '/opd/' },
+              { text: '知识蒸馏总览（黑盒 vs 白盒）', link: '/distillation/' },
+              { text: '白盒蒸馏（MiniLLM/GKD/DistiLLM）', link: '/distillation/white-box' },
+              { text: '黑盒蒸馏（数据/CoT）', link: '/distillation/black-box' },
+              { text: '推理蒸馏（R1-Distill/s1/LIMO）', link: '/distillation/reasoning' }
             ]
           }
         ]

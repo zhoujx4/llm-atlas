@@ -6,7 +6,7 @@ title: OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）
 
 > **一句话**：OPD（On-Policy Distillation）让学生在**自己采样的回答**上接受老师逐 token 的反馈，兼得 RL 的 on-policy 和蒸馏的稠密信号。按「老师比学生强在哪、能给出什么信号」分成三类：白盒（更强的模型，给 logits）、黑盒（更强的模型，只给文本）、自蒸馏（同一个模型，多拿到了答案、反馈或上下文）。
 >
-> 前置阅读：[后训练总览](/post-training/)、[黑盒蒸馏系列](/distillation/)（在老师文本上做 SFT 的传统蒸馏）、[白盒蒸馏](/distillation/white-box)（MiniLLM / GKD / DistiLLM 的散度设计）、[GRPO](/rlhf/grpo)
+> 前置阅读：[后训练总览](/post-training/)、[知识蒸馏总览](/distillation/)（离线蒸馏：在老师文本上做 SFT）、[白盒蒸馏](/distillation/white-box)（MiniLLM / GKD / DistiLLM 的散度设计）、[GRPO](/rlhf/grpo)
 >
 > 本页嘉宾原话均出自青稞社区《OPD 专题｜青稞 AMA 第 3 期》（2026-05-30 直播）逐字稿，发言人身份以直播介绍为准。
 
@@ -169,7 +169,7 @@ flowchart LR
 
 这就是本页的地图。
 
-注意：本页的「黑盒蒸馏」专指**黑盒 OPD**，即学生仍然自己采样，只是老师给不出 logits。只拿老师文本做 SFT 的传统黑盒蒸馏，见 [黑盒蒸馏系列](/distillation/)。
+注意：本页的「黑盒蒸馏」专指**黑盒 OPD**，即学生仍然自己采样，只是老师给不出 logits。只拿老师文本做 SFT 的离线黑盒蒸馏是另一件事，见同组的 [黑盒蒸馏](/distillation/black-box)。
 
 ## 03. 白盒蒸馏：拿得到老师的 logits
 

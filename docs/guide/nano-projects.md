@@ -20,8 +20,8 @@ title: 动手学 LLM 全栈：各种 nano 项目
 | --- | --- | --- | --- |
 | 预训练与架构 | Megatron-LM | nanoGPT · nanochat · llm.c | [模型架构](/architecture/)、[基础模型](/base-models/) |
 | 分布式训练 | Megatron / DeepSpeed | picotron · nanotron | [训练系统 / 分布式](/training-systems/) |
-| 后训练与 RL | verl / OpenRLHF / TRL | TinyZero · simple_GRPO · nano-aha-moment | [后训练总览](/post-training/)、[PPO / GRPO 系列](/rlhf/) |
-| 推理引擎 | vLLM / SGLang | nano-vllm · tiny-llm | [推理与解码](/inference/) |
+| 后训练与 RL | verl / OpenRLHF / TRL | rlhf-book/code · TinyZero · simple_GRPO · nano-aha-moment | [后训练总览](/post-training/)、[PPO / GRPO 系列](/rlhf/) |
+| 推理引擎 | vLLM / SGLang | nano-vllm · mini-sglang · tiny-llm | [推理与解码](/inference/) |
 | GPU kernel | FlashAttention / Triton | GPU-Puzzles · Triton-Puzzles · flash-attention-minimal | [显存与吞吐优化](/training-systems/efficiency) |
 | 架构变体 | — | makeMoE · nanoVLM | [MoE 混合专家](/architecture/moe)、[VLM 多模态结构](/architecture/vlm) |
 | Agent | LangGraph / Claude Code | mini-swe-agent · tiny-universe | [Agent 总览](/agent/)、[Harness 工程](/harness/) |
@@ -67,9 +67,31 @@ nanochat 最值得精读：8×H100 训 4 小时约 100 美元就能走完全流�
 
 读这几个仓库时，对照 [训练循环机制](/rlhf/training-loop) 一页看 rollout 与 learning 两阶段怎么切分，会快很多。
 
-**两个空白**：
+### 想横向比较不同算法
 
-- **纯 PPO 的教学实现**没有星数够多的（nanoRLHF 只有 18⭐）。想看 [PPO](/rlhf/ppo) 的完整形态，建议读 TRL 的 `PPOTrainer`，或 nanochat 里的 RL 部分。
+上面几个都只实现 GRPO 一种。要把本站 [PPO / GRPO 系列](/rlhf/) 里的算法挨个对照着看，用下面两个：
+
+| 项目 | ⭐ | 最近提交 | 说明 |
+| --- | --- | --- | --- |
+| [rlhf-book/code](https://github.com/natolambert/rlhf-book/tree/main/code) | 2.4k | 2026-09 | Nathan Lambert《RLHF Book》的配套实现，**算法清单和本站后训练章节几乎一一对应** |
+| [CleanRL](https://github.com/vwxyzjn/cleanrl) | 10.5k | 2026-04 | 单文件实现的鼻祖（PPO/DQN/SAC 等），`ppo_atari.py` 只有 340 行。不是 LLM 场景，但想先把 PPO 本身吃透，它比任何 RLHF 仓库都干净 |
+
+rlhf-book 的 `code/` 按主题分目录，每个目录是一个 `loss.py` 加每种算法一份 config：
+
+| 目录 | 覆盖的算法 | 对应本站 |
+| --- | --- | --- |
+| `policy_gradients/` | REINFORCE、[RLOO](/rlhf/rloo)、[PPO](/rlhf/ppo)、[GRPO](/rlhf/grpo)、Dr.GRPO、[GSPO](/rlhf/gspo)、[CISPO](/rlhf/cispo)、[DAPO](/rlhf/dapo) | [PPO / GRPO 系列](/rlhf/) |
+| `direct_alignment/` | [DPO](/dpo/dpo)、[IPO](/dpo/ipo)、[KTO](/dpo/kto)、[ORPO](/dpo/orpo)、[SimPO](/dpo/simpo) | [DPO 家族](/dpo/) |
+| `reward_models/` | 偏好 RM、ORM、PRM | [Reward Model](/rlhf/reward-model)、[过程奖励 vs 结果奖励](/reasoning/reward-models) |
+| `rejection_sampling/` | 拒绝采样微调 | [数据构造](/sft/data-construction) |
+| `instruction_tuning/` · `distillation/` | SFT、蒸馏 | [SFT](/sft/)、[蒸馏](/distillation/) |
+
+同一套 rollout 和训练循环下只换 `loss.py` 里的一个函数，这正是看懂「这些算法到底差在哪一行」最省力的方式——和本站 [后训练总览](/post-training/) 里「统一梯度视角」那一节是同一个思路。
+
+至于 DAPO、GSPO、CISPO 的生产级实现，看 [verl](https://github.com/verl-project/verl)（23.7k⭐）的 `recipe/` 目录，各算法一个配方，比读主干代码容易。
+
+**一个空白**：
+
 - **多轮 [Agentic RL](/agent/agentic-rl/)** 目前没有 nano 版，开源方案（VerlTool、SkyRL 等）基本都是在 verl 上加东西。比较现实的路径是拿 nano-aha-moment 自己改成多轮。
 
 ## 3. 推理引擎：对标 vLLM / SGLang
@@ -80,9 +102,10 @@ nanochat 最值得精读：8×H100 训 4 小时约 100 美元就能走完全流�
 | --- | --- | --- | --- |
 | [llama2.c](https://github.com/karpathy/llama2.c) | 20.1k | 2024-08 | 纯 C 推理，最朴素的解码循环 |
 | [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm) | 15.7k | 2026-04 | **约 1200 行 Python**，速度接近 vLLM，带前缀缓存、张量并行、torch.compile 与 CUDA graph |
+| [mini-sglang](https://github.com/sgl-project/mini-sglang) | 5.2k | 2026-05 | **SGLang 官方出的教学版**，约 5000 行 Python，保留 Radix Cache、chunked prefill、overlap scheduling、张量并行和 OpenAI 兼容 API，开箱跑 Llama-3 / Qwen-3。配套有 [LMSYS 博客](https://www.lmsys.org/blog/2025-12-17-minisgl/) |
 | [tiny-llm](https://github.com/skyzh/tiny-llm) | 4.7k | 2026-09 | 三周课程：先用 mlx 数组手搓 Qwen3，再加 KV cache 与 Metal kernel，最后做连续批处理与 paged KV。[在线书](https://skyzh.github.io/tiny-llm/) |
 
-nano-vllm 就是「去掉封装的 vLLM」，配合 tiny-llm 基本覆盖了 PagedAttention、连续批处理、前缀缓存这三件核心事。
+三者分工很清楚：**nano-vllm**（1200 行）最小，看懂 PagedAttention 和连续批处理的骨架；**mini-sglang**（5000 行）多出 Radix Cache 这条 SGLang 独有的前缀树缓存，以及调度器和服务层，是「完整引擎长什么样」的参照；**tiny-llm** 则是从矩阵乘开始自己搭一遍的课程。
 
 **空白**：[投机解码](/inference/speculative-decoding) 的最小实现都只有几十到一百多星，没有列入；这块建议直接读 vLLM 的 spec decode 模块。
 

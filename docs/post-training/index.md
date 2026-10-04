@@ -34,7 +34,7 @@ flowchart TB
 | SFT | $(x, y)$ 示范对 | 人工或强模型写好的答案 | 否 | [SFT 监督微调](/sft/) |
 | 偏好优化 | $(x, y_w, y_l)$ 偏好对，或单条 + 好/坏标签 | 人类或 AI 标注的相对偏好 | 否（离线） | [DPO 系列](/dpo/) |
 | 强化学习 | 只需 prompt $x$ | [奖励模型](/rlhf/reward-model)打分，或规则判对错（[RLVR](/reasoning/rlvr)） | 是 | [PPO / GRPO 系列](/rlhf/) |
-| 黑盒蒸馏 | 教师生成的 $(x, y)$ | 教师模型的输出文本 | 否 | [黑盒蒸馏系列](/distillation/) |
+| 黑盒蒸馏（离线） | 教师生成的 $(x, y)$ | 教师模型的输出文本 | 否 | [黑盒蒸馏](/distillation/black-box) |
 | OPD 在线蒸馏 | 只需 prompt $x$ | 教师对学生采样的逐 token 对数概率 | 是 | [OPD](/opd/) |
 
 **维度二：参数更新方式。** 全参数微调更新全部权重；[LoRA](/lora/lora) 及其变体冻结基座，只训练低秩增量，显存和 checkpoint 体积都小一个数量级。它不改变训练目标，所以可以和上表任意一行组合：LoRA-SFT、LoRA-DPO、LoRA-GRPO 都是常见配置，主流训练框架（TRL、OpenRLHF、LLaMA-Factory 等）也都支持把 PEFT 接到这些 trainer 上。选型时先按手里的数据和目标决定"学什么"，再按显存预算决定"全参还是 LoRA"。
@@ -112,8 +112,7 @@ flowchart LR
 | [LoRA 系列](/lora/) | 怎么用更少显存和参数完成下面任何一种训练 |
 | [DPO 系列](/dpo/) | 怎么不训 RM、不跑在线 RL 就对齐偏好 |
 | [PPO / GRPO 系列](/rlhf/) | 怎么用奖励信号把能力继续往上推 |
-| [黑盒蒸馏系列](/distillation/) | 怎么用教师生成的数据把能力转移到小模型 |
-| [OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）](/opd/) | 老师怎么在学生自己的采样上给信号：拿 logits 的白盒、只拿文本的黑盒、带着答案当自己老师的自蒸馏 |
+| [OPD（白盒蒸馏/黑盒蒸馏/自蒸馏）](/opd/) | 蒸馏全部收在这一组：离线的[黑盒蒸馏](/distillation/black-box)与[推理蒸馏](/distillation/reasoning)，以及 on-policy 的白盒 / 黑盒 / 自蒸馏 |
 
 以下内容也和后训练密切相关，但因为覆盖范围更广，放在各自的章节里：
 

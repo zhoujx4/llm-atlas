@@ -15,8 +15,7 @@ flowchart LR
         SFT[SFT] ~~~ LORA[LoRA 系列]
         SFT --> PO[DPO 系列]
         SFT --> RL[PPO/GRPO 系列]
-        SFT --> DST[黑盒蒸馏系列]
-        SFT --> OPD[OPD<br/>白盒/黑盒/自蒸馏]
+        SFT --> DST[蒸馏 / OPD<br/>黑盒 · 白盒 · 自蒸馏]
     end
     PO --> A[对齐模型]
     RL --> A
